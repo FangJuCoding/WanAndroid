@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".register.RegisterActivity"
+            android:name=".register.RegisterFragment"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".login.LoginFragment"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.funcoding.wanandroid.user.launcher.LauncherActivity"

@@ -3,11 +3,8 @@
     package="com.funcoding.wanandroid.user">
 
     <application>
-        <activity android:name=".register.RegisterActivity"
+        <activity android:name=".user.AccountActivity"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".login.LoginActivity"
-            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
