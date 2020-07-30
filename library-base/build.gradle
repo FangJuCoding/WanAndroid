@@ -43,4 +43,8 @@ dependencies {
     api rootProject.ext.dependencies["appcompat"]
     api rootProject.ext.dependencies["constraint-layout"]
     api project(':library-res')
+    //阿里路由框架
+    api(rootProject.ext.dependencies["arouter-api"]) {
+        exclude group: 'com.android.support'
+    }
 }
