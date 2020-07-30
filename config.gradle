@@ -1,0 +1,34 @@
+ext {
+    // android 相关配置
+    android = [
+            compileSdkVersion: 30,
+            buildToolsVersion: "30.0.0",
+            applicationId    : "com.funcoding.wanandroid",
+            minSdkVersion    : 16,
+            targetSdkVersion : 30,
+            versionCode      : 1,
+            versionName      : "1.0",
+    ]
+
+    // versions配置
+    versions = [
+            appcompatVersion       : "1.1.0",
+            constraintlayoutVersion: "1.1.3",
+            material               : "1.2.0-rc01"
+    ]
+
+    // 依赖配置
+    dependencies = [
+            "kotlin-stdlib"    : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            "core-ktx"         : "androidx.core:core-ktx:1.3.1",
+            // 兼容包
+            "appcompat"        : "androidx.appcompat:appcompat:${versions["appcompatVersion"]}",
+            // 约束布局
+            "constraint-layout": "androidx.constraintlayout:constraintlayout:${versions["constraintlayoutVersion"]}",
+            // Material Design组件
+            "material"         : "com.google.android.material:material:${versions["material"]}",
+            // 阿里路由框架
+            "arouter-api"      : "com.alibaba:arouter-api:1.5.0",
+            "arouter-compiler" : "com.alibaba:arouter-compiler:1.2.2"
+    ]
+}
