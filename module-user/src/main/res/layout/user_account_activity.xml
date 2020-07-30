@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.AccountActivity">
+    tools:context=".account.AccountActivity">
 
-    <fragment
+    <FrameLayout
         android:id="@+id/account_fragment_container"
-        android:name="com.funcoding.wanandroid.user.login.LoginFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

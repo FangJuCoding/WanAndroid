@@ -3,7 +3,7 @@
     package="com.funcoding.wanandroid.user">
 
     <application>
-        <activity android:name=".user.AccountActivity"
+        <activity android:name=".account.AccountActivity"
             android:screenOrientation="portrait"/>
     </application>
 

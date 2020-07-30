@@ -1,4 +1,4 @@
-package com.funcoding.wanandroid.user.model
+package com.funcoding.wanandroid.user.data.model
 
 data class UserInfo(
     val admin: Boolean,

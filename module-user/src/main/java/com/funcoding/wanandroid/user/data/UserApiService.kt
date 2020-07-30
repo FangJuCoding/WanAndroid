@@ -1,7 +1,7 @@
-package com.funcoding.wanandroid.user
+package com.funcoding.wanandroid.user.data
 
 import com.funcoding.wanandroid.base.network.ApiResponse
-import com.funcoding.wanandroid.user.model.UserInfo
+import com.funcoding.wanandroid.user.data.model.UserInfo
 import retrofit2.Call
 import retrofit2.http.POST
 import retrofit2.http.Query

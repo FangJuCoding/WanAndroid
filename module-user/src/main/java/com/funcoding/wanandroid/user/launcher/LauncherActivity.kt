@@ -1,20 +1,17 @@
 package com.funcoding.wanandroid.user.launcher
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.utils.MainHandler
 import com.funcoding.wanandroid.user.R
-import com.funcoding.wanandroid.user.user.AccountActivity
+import com.funcoding.wanandroid.user.account.AccountActivity
 
 /**
  * 启动页面
  */
-class LauncherActivity : AppCompatActivity() {
+class LauncherActivity : BaseActivity() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.user_launcher_activity)
-
+    override fun initView() {
+        super.initView()
         MainHandler.postDelay(
             Runnable {
                 gotoMain()
@@ -22,6 +19,8 @@ class LauncherActivity : AppCompatActivity() {
             DELAY_MILLIS
         )
     }
+
+    override fun getLayoutResId(): Int = R.layout.user_launcher_activity
 
     private fun gotoMain() {
         AccountActivity.gotoAccountActivity(this)
