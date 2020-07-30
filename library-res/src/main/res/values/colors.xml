@@ -3,10 +3,10 @@
     <!--基础主色-->
     <color name="colorPrimary">#31373d</color>
     <color name="colorPrimaryDark">#31373d</color>
-    <color name="colorAccent">#1572fc</color>
+    <color name="colorAccent">#1A4776</color>
     <color name="colorLight">@android:color/white</color>
     <color name="colorDark">@android:color/black</color>
-    <color name="colorAccentAlpha">#801572fc</color>
+    <color name="colorAccentAlpha">#801A4776</color>
 
     <!--背景色-->
     <color name="windowsBackground">#f7f7f7</color>

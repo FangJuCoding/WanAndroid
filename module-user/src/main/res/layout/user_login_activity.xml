@@ -4,88 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SignActivity">
+    tools:context=".login.LoginActivity">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/logo"
-        app:layout_constraintBottom_toTopOf="@+id/sign_guideline"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/login_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/sign_guideline"
+        android:id="@+id/login_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.3" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/sign_username_input_lay"
+        android:id="@+id/login_username_input_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
         android:layout_marginRight="@dimen/dp_16"
-        android:hint="@string/sign_label_please_input_username"
+        android:hint="@string/user_label_please_input_username"
+        app:boxStrokeColor="@color/colorAccent"
         app:counterEnabled="true"
         app:counterMaxLength="16"
         app:endIconMode="clear_text"
+        app:endIconTint="@color/colorAccent"
+        app:helperTextTextColor="@color/textSecond"
         app:hintTextColor="@color/textPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/sign_guideline"
-        app:startIconDrawable="@drawable/sign_username">
+        app:layout_constraintTop_toBottomOf="@+id/login_guideline"
+        app:startIconDrawable="@drawable/user_username"
+        app:startIconTint="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/sign_username_et"
+            android:id="@+id/login_username_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:inputType="text"
-            android:maxLength="1"
+            android:maxLength="16"
+            android:maxLines="1"
             android:textColor="@color/textPrimary"
             android:textColorHint="@color/textSecond" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/sign_password_input_lay"
+        android:id="@+id/login_password_input_lay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
         android:layout_marginRight="@dimen/dp_16"
-        android:hint="@string/sign_label_please_input_password"
+        android:hint="@string/user_label_please_input_password"
+        app:boxStrokeColor="@color/colorAccent"
         app:counterEnabled="true"
         app:counterMaxLength="16"
         app:endIconMode="password_toggle"
+        app:endIconTint="@color/colorAccent"
         app:hintTextColor="@color/textPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/sign_username_input_lay"
-        app:startIconDrawable="@drawable/sign_password">
+        app:layout_constraintTop_toBottomOf="@+id/login_username_input_lay"
+        app:startIconDrawable="@drawable/user_password"
+        app:startIconTint="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/sign_password_et"
+            android:id="@+id/login_password_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:inputType="textPassword"
-            android:maxLength="1"
+            android:maxLength="16"
+            android:maxLines="1"
             android:textColor="@color/textPrimary"
             android:textColorHint="@color/textSecond" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/remember_pwd_switch"
+        android:id="@+id/login_remember_pwd_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
         android:checked="true"
         android:enabled="true"
-        android:text="@string/sign_label_remember_password"
+        android:text="@string/user_label_remember_password"
         android:textColor="@color/textSecond"
         android:textSize="@dimen/sp_14"
-        app:layout_constraintEnd_toEndOf="@+id/sign_password_input_lay"
-        app:layout_constraintTop_toBottomOf="@+id/sign_password_input_lay" />
+        app:layout_constraintEnd_toEndOf="@+id/login_password_input_lay"
+        app:layout_constraintTop_toBottomOf="@+id/login_password_input_lay" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_btn"
@@ -95,11 +103,26 @@
         android:layout_marginTop="@dimen/dp_16"
         android:layout_marginRight="@dimen/dp_16"
         android:background="@drawable/sel_shape_btn"
-        android:text="@string/sign_label_login"
+        android:text="@string/user_label_login"
         android:textColor="@color/colorLight"
         android:textSize="@dimen/sp_14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/remember_pwd_switch" />
+        app:layout_constraintTop_toBottomOf="@+id/login_remember_pwd_switch" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_goto_register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_16"
+        android:background="@drawable/sel_shape_btn"
+        android:text="@string/user_label_goto_register"
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="@+id/login_btn"
+        app:layout_constraintStart_toStartOf="@+id/login_btn"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

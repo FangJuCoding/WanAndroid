@@ -6,19 +6,20 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".ui.LauncherActivity">
+    tools:context=".launcher.LauncherActivity">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@mipmap/logo" />
+        android:src="@drawable/logo" />
 
     <TextView
         style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_16"
-        android:text="Hello World" />
+        android:text="Hello World"
+        android:textColor="@color/colorAccent" />
 
 </LinearLayout>

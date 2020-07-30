@@ -64,6 +64,6 @@ dependencies {
         implementation project(':library-base')
     } else {
         // 登陆模块
-        implementation project(':module-sign')
+        implementation project(':module-user')
     }
 }

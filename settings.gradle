@@ -1,4 +1,4 @@
-include ':module-sign'
+include ':module-user'
 include ':library-base'
 include ':library-res'
 include ':app'

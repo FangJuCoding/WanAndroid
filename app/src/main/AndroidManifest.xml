@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".sign.ui.LauncherActivity"
+            android:name="com.funcoding.wanandroid.user.launcher.LauncherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen.NoTitle">
             <intent-filter>
