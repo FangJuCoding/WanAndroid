@@ -6,5 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".ui.SignActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/logo"
+        app:layout_constraintBottom_toTopOf="@+id/sign_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/sign_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sign_username_input_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:hint="@string/sign_label_please_input_username"
+        app:counterEnabled="true"
+        app:counterMaxLength="16"
+        app:endIconMode="clear_text"
+        app:hintTextColor="@color/textPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/sign_guideline"
+        app:startIconDrawable="@drawable/sign_username">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sign_username_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:inputType="text"
+            android:maxLength="1"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textSecond" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/sign_password_input_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:hint="@string/sign_label_please_input_password"
+        app:counterEnabled="true"
+        app:counterMaxLength="16"
+        app:endIconMode="password_toggle"
+        app:hintTextColor="@color/textPrimary"
+        app:layout_constraintTop_toBottomOf="@+id/sign_username_input_lay"
+        app:startIconDrawable="@drawable/sign_password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sign_password_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:inputType="textPassword"
+            android:maxLength="1"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textSecond" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/remember_pwd_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_8"
+        android:checked="true"
+        android:enabled="true"
+        android:text="@string/sign_label_remember_password"
+        android:textColor="@color/textSecond"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="@+id/sign_password_input_lay"
+        app:layout_constraintTop_toBottomOf="@+id/sign_password_input_lay" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_16"
+        android:background="@drawable/sel_shape_btn"
+        android:text="@string/sign_label_login"
+        android:textColor="@color/colorLight"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/remember_pwd_switch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

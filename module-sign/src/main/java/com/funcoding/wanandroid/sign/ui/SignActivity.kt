@@ -6,6 +6,9 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.funcoding.wanandroid.base.router.RouterPath
 import com.funcoding.wanandroid.sign.R
 
+/**
+ * 登陆页面
+ */
 @Route(path = RouterPath.ActivityPath.PAGER_SIGN)
 class SignActivity : AppCompatActivity() {
 
