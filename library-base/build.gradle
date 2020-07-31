@@ -50,6 +50,7 @@ dependencies {
     api rootProject.ext.dependencies["constraint-layout"]
     api rootProject.ext.dependencies["retrofit"]
     api rootProject.ext.dependencies["retrofit-converter-gson"]
+    api rootProject.ext.dependencies["logging-interceptor"]
     api project(':library-res')
     //阿里路由框架
     api(rootProject.ext.dependencies["arouter-api"]) {

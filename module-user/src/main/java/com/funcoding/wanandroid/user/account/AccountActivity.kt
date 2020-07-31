@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.global.AccountManager
+import com.funcoding.wanandroid.base.widget.LoadingDialog
 import com.funcoding.wanandroid.user.R
 import com.funcoding.wanandroid.user.login.LoginFragment
 import com.funcoding.wanandroid.user.register.RegisterFragment
@@ -25,8 +27,17 @@ class AccountActivity : BaseActivity(), AccountTrigger {
 
     override fun getLayoutResId(): Int = R.layout.user_account_activity
 
+    override fun initView() {
+        accountViewModel.isLoading.observe(this, Observer { result ->
+            if (result) {
+                LoadingDialog.show(this)
+            } else {
+                LoadingDialog.dismiss()
+            }
+        })
+    }
+
     override fun initData() {
-        super.initData()
         val token = AccountManager.token
         if (TextUtils.isEmpty(token)) {
             loginFragment = LoginFragment(accountViewModel)

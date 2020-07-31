@@ -10,20 +10,20 @@ object AccountManager {
     private const val pref_token = "account_token"
     private const val pref_isRememberPwd = "account_isRememberPwd"
 
-    var username: String?
-        get() = sharedPreferences().getString(pref_username, "")
+    var username: String
+        get() = sharedPreferences().getString(pref_username, "")!!
         set(value) {
             sharedPreferences().edit().putString(pref_username, value).apply()
         }
 
-    var password: String?
-        get() = sharedPreferences().getString(pref_password, "")
+    var password: String
+        get() = sharedPreferences().getString(pref_password, "")!!
         set(value) {
             sharedPreferences().edit().putString(pref_password, value).apply()
         }
 
-    var token: String?
-        get() = sharedPreferences().getString(pref_token, "")
+    var token: String
+        get() = sharedPreferences().getString(pref_token, "")!!
         set(value) {
             sharedPreferences().edit().putString(pref_token, value).apply()
         }

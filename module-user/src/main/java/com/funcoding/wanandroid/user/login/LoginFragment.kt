@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.funcoding.wanandroid.base.ext.shortToast
 import com.funcoding.wanandroid.base.ext.toast
 import com.funcoding.wanandroid.base.global.AccountManager
 import com.funcoding.wanandroid.base.router.RouterPath
+import com.funcoding.wanandroid.base.widget.LoadingDialog
 import com.funcoding.wanandroid.user.R
 import com.funcoding.wanandroid.user.account.AccountTrigger
 import com.funcoding.wanandroid.user.account.AccountViewModel
@@ -54,7 +56,9 @@ class LoginFragment(private val accountViewModel: AccountViewModel) : Fragment()
 
         when {
             username.isEmpty() -> "用户名不能为空".shortToast()
+            username.length < 3 -> "用户名至少3位".shortToast()
             password.isEmpty() -> "密码不能为空".shortToast()
+            password.length < 6 -> "密码至少6位".shortToast()
             else -> accountViewModel.login(username, password, isRememberPwd)
         }
 

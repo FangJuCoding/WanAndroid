@@ -38,6 +38,7 @@ ext {
             "arouter-compiler"          : "com.alibaba:arouter-compiler:1.2.2",
             // Retrofit
             "retrofit"                  : "com.squareup.retrofit2:retrofit:2.6.1",
-            "retrofit-converter-gson"   : "com.squareup.retrofit2:converter-gson:2.6.1"
+            "retrofit-converter-gson"   : "com.squareup.retrofit2:converter-gson:2.6.1",
+            "logging-interceptor"       : "com.squareup.okhttp3:logging-interceptor:3.5.0"
     ]
 }

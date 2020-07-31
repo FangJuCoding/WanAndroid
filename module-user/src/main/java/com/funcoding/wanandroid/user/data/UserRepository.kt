@@ -1,18 +1,29 @@
 package com.funcoding.wanandroid.user.data
 
+import com.funcoding.wanandroid.base.global.AccountManager
+import com.funcoding.wanandroid.base.network.ApiResponse
 import com.funcoding.wanandroid.base.network.BaseRepository
-import com.funcoding.wanandroid.base.network.ServiceCreator
+import com.funcoding.wanandroid.user.data.model.UserInfo
+import kotlinx.coroutines.Dispatchers
 
 /**
  * 登陆注册模块数据仓库
  */
-class UserRepository : BaseRepository() {
-    private val userApiService = ServiceCreator.create(UserApiService::class.java)
+object UserRepository : BaseRepository() {
+    fun getUsername() = AccountManager.username
 
-    suspend fun login(username: String, password: String) =
-        userApiService.login(username, password).await()
+    fun getPwd() = AccountManager.password
 
-    suspend fun register(username: String, password: String, rePassword: String) =
-        userApiService.register(username, password, rePassword).await()
+    fun getToken() = AccountManager.token
 
+    fun isRememberPwd() = AccountManager.isRememberPwd
+
+    fun login(username: String, password: String) = fire(Dispatchers.IO) {
+        val loginResponse: ApiResponse<UserInfo> = UserApiNetWork.login(username, password)
+        if (loginResponse.apiErrorCode() == 0) {
+            Result.success(loginResponse.apiData())
+        } else {
+            Result.failure(RuntimeException("errorCode = ${loginResponse.apiErrorCode()} , errorMsg = ${loginResponse.apiErrorMsg()}"))
+        }
+    }
 }
