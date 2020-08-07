@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">library-base</string>
-    <string name="base_label_loading">加载中...</string>
+    <string name="base_label_loading">加载中…</string>
+
+
+    <string name="base_tip_network_connection_failed">网络连接失败</string>
+    <string name="base_tip_network_request_timeout">网络请求超时</string>
+    <string name="base_tip_api_data_parse_error">数据解析错误</string>
+
 </resources>

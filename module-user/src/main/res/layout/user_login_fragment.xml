@@ -10,20 +10,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/login_guideline"
+        app:layout_constraintBottom_toTopOf="@+id/loginGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/login_guideline"
+        android:id="@+id/loginGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.3" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_username_input_lay"
+        android:id="@+id/loginUsernameInputLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
@@ -36,12 +36,12 @@
         app:endIconTint="@color/colorAccent"
         app:helperTextTextColor="@color/textSecond"
         app:hintTextColor="@color/textPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/login_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/loginGuideline"
         app:startIconDrawable="@drawable/user_username"
         app:startIconTint="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_username_et"
+            android:id="@+id/loginUsernameEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -54,7 +54,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_password_input_lay"
+        android:id="@+id/loginPasswordInputLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
@@ -66,12 +66,12 @@
         app:endIconMode="password_toggle"
         app:endIconTint="@color/colorAccent"
         app:hintTextColor="@color/textPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/login_username_input_lay"
+        app:layout_constraintTop_toBottomOf="@+id/loginUsernameInputLay"
         app:startIconDrawable="@drawable/user_password"
         app:startIconTint="@color/colorAccent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_password_et"
+            android:id="@+id/loginPasswordEt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -84,7 +84,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/login_remember_pwd_switch"
+        android:id="@+id/loginRememberPwdSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:checked="true"
@@ -92,11 +92,11 @@
         android:text="@string/user_label_remember_password"
         android:textColor="@color/textSecond"
         android:textSize="@dimen/sp_14"
-        app:layout_constraintEnd_toEndOf="@+id/login_password_input_lay"
-        app:layout_constraintTop_toBottomOf="@+id/login_password_input_lay" />
+        app:layout_constraintEnd_toEndOf="@+id/loginPasswordInputLay"
+        app:layout_constraintTop_toBottomOf="@+id/loginPasswordInputLay" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_btn"
+        android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
@@ -108,10 +108,10 @@
         android:textSize="@dimen/sp_14"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_remember_pwd_switch" />
+        app:layout_constraintTop_toBottomOf="@+id/loginRememberPwdSwitch" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_goto_register_btn"
+        android:id="@+id/loginGotoRegisterBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_16"
@@ -121,8 +121,8 @@
         android:text="@string/user_label_goto_register"
         android:textColor="@color/colorLight"
         android:textSize="@dimen/sp_14"
-        app:layout_constraintEnd_toEndOf="@+id/login_btn"
-        app:layout_constraintStart_toStartOf="@+id/login_btn"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+        app:layout_constraintEnd_toEndOf="@+id/loginBtn"
+        app:layout_constraintStart_toStartOf="@+id/loginBtn"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

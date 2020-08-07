@@ -10,8 +10,8 @@ class LoadingDialog(context: Context) : Dialog(context) {
 
     init {
         setContentView(R.layout.base_loading_dialog)
-        setCancelable(false)
-        setCanceledOnTouchOutside(false)
+//        setCancelable(false)
+//        setCanceledOnTouchOutside(false)
     }
 
     companion object {

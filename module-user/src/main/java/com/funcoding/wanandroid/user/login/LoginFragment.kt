@@ -2,17 +2,12 @@ package com.funcoding.wanandroid.user.login
 
 import android.content.Context
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.funcoding.wanandroid.base.base.AppContext
+import com.funcoding.wanandroid.base.base.BaseFragment
 import com.funcoding.wanandroid.base.ext.shortToast
-import com.funcoding.wanandroid.base.ext.toast
-import com.funcoding.wanandroid.base.global.AccountManager
 import com.funcoding.wanandroid.base.router.RouterPath
-import com.funcoding.wanandroid.base.widget.LoadingDialog
 import com.funcoding.wanandroid.user.R
 import com.funcoding.wanandroid.user.account.AccountTrigger
 import com.funcoding.wanandroid.user.account.AccountViewModel
@@ -22,7 +17,7 @@ import kotlinx.android.synthetic.main.user_login_fragment.*
  * 登陆页面
  */
 @Route(path = RouterPath.ActivityPath.PAGER_SIGN)
-class LoginFragment(private val accountViewModel: AccountViewModel) : Fragment() {
+class LoginFragment(private val accountViewModel: AccountViewModel) : BaseFragment() {
     private lateinit var accountTrigger: AccountTrigger
 
     override fun onAttach(context: Context) {
@@ -30,35 +25,40 @@ class LoginFragment(private val accountViewModel: AccountViewModel) : Fragment()
         accountTrigger = context as AccountTrigger
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.user_login_fragment, container, false)
+    override fun getLayResId(): Int = R.layout.user_login_fragment
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        loginUsernameEt.setText(accountViewModel.getUsername())
+        loginPasswordEt.setText(accountViewModel.getPassword())
+        loginRememberPwdSwitch.isChecked = accountViewModel.isRememberPwd()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        login_goto_register_btn.setOnClickListener {
+        loginGotoRegisterBtn.setOnClickListener {
             accountTrigger.triggerView()
         }
 
-        login_btn.setOnClickListener {
+        loginBtn.setOnClickListener {
             gotoLogin()
         }
     }
 
     private fun gotoLogin() {
-        val username: String = login_username_et.text.toString().trim()
-        val password: String = login_password_et.text.toString().trim()
-        val isRememberPwd: Boolean = login_remember_pwd_switch.isChecked
+        val username: String = loginUsernameEt.text.toString().trim()
+        val password: String = loginPasswordEt.text.toString().trim()
+        val isRememberPwd: Boolean = loginRememberPwdSwitch.isChecked
 
         when {
-            username.isEmpty() -> "用户名不能为空".shortToast()
-            username.length < 3 -> "用户名至少3位".shortToast()
-            password.isEmpty() -> "密码不能为空".shortToast()
-            password.length < 6 -> "密码至少6位".shortToast()
+            username.isEmpty() -> AppContext.resources.getString(R.string.user_tip_username_can_not_be_empty)
+                .shortToast()
+            username.length < 3 -> AppContext.resources.getString(R.string.user_tip_username_must_over_three)
+                .shortToast()
+            password.isEmpty() -> AppContext.resources.getString(R.string.user_tip_password_can_not_be_empty)
+                .shortToast()
+            password.length < 6 -> AppContext.resources.getString(R.string.user_tip_password_must_over_six)
+                .shortToast()
             else -> accountViewModel.login(username, password, isRememberPwd)
         }
 
