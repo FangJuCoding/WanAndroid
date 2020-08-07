@@ -1,11 +1,11 @@
 package com.funcoding.wanandroid.base.utils
 
 import android.widget.Toast
-import com.funcoding.wanandroid.base.base.BaseApplication
+import com.funcoding.wanandroid.base.base.AppContext
 
 object ToastUtil {
     private val toast: Toast by lazy {
-        Toast.makeText(BaseApplication.context, "", Toast.LENGTH_SHORT)
+        Toast.makeText(AppContext, "", Toast.LENGTH_SHORT)
     }
 
     fun showShortToast(msg: String) {

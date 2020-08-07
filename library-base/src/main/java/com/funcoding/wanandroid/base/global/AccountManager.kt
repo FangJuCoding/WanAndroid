@@ -1,7 +1,7 @@
 package com.funcoding.wanandroid.base.global
 
-import android.content.Context
-import com.funcoding.wanandroid.base.base.BaseApplication
+import com.funcoding.wanandroid.base.base.AppContext
+import com.funcoding.wanandroid.base.ext.Preferences
 
 object AccountManager {
     private const val pref_name = "account_manager"
@@ -10,30 +10,11 @@ object AccountManager {
     private const val pref_token = "account_token"
     private const val pref_isRememberPwd = "account_isRememberPwd"
 
-    var username: String
-        get() = sharedPreferences().getString(pref_username, "")!!
-        set(value) {
-            sharedPreferences().edit().putString(pref_username, value).apply()
-        }
+    var username: String by Preferences(AppContext, pref_username, "", pref_name)
 
-    var password: String
-        get() = sharedPreferences().getString(pref_password, "")!!
-        set(value) {
-            sharedPreferences().edit().putString(pref_password, value).apply()
-        }
+    var password: String by Preferences(AppContext, pref_password, "", pref_name)
 
-    var token: String
-        get() = sharedPreferences().getString(pref_token, "")!!
-        set(value) {
-            sharedPreferences().edit().putString(pref_token, value).apply()
-        }
+    var token: String by Preferences(AppContext, pref_token, "", pref_name)
 
-    var isRememberPwd: Boolean
-        get() = sharedPreferences().getBoolean(pref_isRememberPwd, false)
-        set(value) {
-            sharedPreferences().edit().putBoolean(pref_isRememberPwd, value).apply()
-        }
-
-    private fun sharedPreferences() =
-        BaseApplication.context.getSharedPreferences(pref_name, Context.MODE_PRIVATE)
+    var isRememberPwd: Boolean by Preferences(AppContext, pref_isRememberPwd, true, pref_name)
 }
