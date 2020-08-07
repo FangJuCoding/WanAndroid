@@ -3,11 +3,9 @@ package com.funcoding.wanandroid.user.login
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import com.alibaba.android.arouter.facade.annotation.Route
 import com.funcoding.wanandroid.base.base.AppContext
 import com.funcoding.wanandroid.base.base.BaseFragment
 import com.funcoding.wanandroid.base.ext.shortToast
-import com.funcoding.wanandroid.base.router.RouterPath
 import com.funcoding.wanandroid.user.R
 import com.funcoding.wanandroid.user.account.AccountTrigger
 import com.funcoding.wanandroid.user.account.AccountViewModel
@@ -16,7 +14,6 @@ import kotlinx.android.synthetic.main.user_login_fragment.*
 /**
  * 登陆页面
  */
-@Route(path = RouterPath.ActivityPath.PAGER_SIGN)
 class LoginFragment(private val accountViewModel: AccountViewModel) : BaseFragment() {
     private lateinit var accountTrigger: AccountTrigger
 

@@ -6,7 +6,11 @@ import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.alibaba.android.arouter.facade.Postcard
+import com.alibaba.android.arouter.facade.callback.NavigationCallback
+import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
+import com.funcoding.wanandroid.base.router.RouterPath
 import com.funcoding.wanandroid.base.widget.LoadingDialog
 import com.funcoding.wanandroid.user.R
 import com.funcoding.wanandroid.user.login.LoginFragment
@@ -37,15 +41,34 @@ class AccountActivity : BaseActivity(), AccountTrigger {
 
         accountViewModel.loginResult.observe(this, Observer { result ->
             if (result) {
-
+                gotoMain()
             }
         })
 
         accountViewModel.registerResult.observe(this, Observer { result ->
             if (result) {
-                triggerView()
+                gotoMain()
             }
         })
+    }
+
+    private fun gotoMain() {
+        ARouter.getInstance().build(RouterPath.PAGER_MAIN)
+            .navigation(this, object : NavigationCallback {
+                override fun onLost(postcard: Postcard?) {
+
+                }
+
+                override fun onFound(postcard: Postcard?) {
+                }
+
+                override fun onInterrupt(postcard: Postcard?) {
+                }
+
+                override fun onArrival(postcard: Postcard?) {
+                    finish()
+                }
+            })
     }
 
     override fun initData() {

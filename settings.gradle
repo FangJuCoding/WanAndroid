@@ -1,3 +1,4 @@
+include ':module-main'
 include ':module-user'
 include ':library-base'
 include ':library-res'

@@ -65,5 +65,7 @@ dependencies {
     } else {
         // 登陆模块
         implementation project(':module-user')
+        // 主界面模块
+        implementation project(':module-main')
     }
 }
