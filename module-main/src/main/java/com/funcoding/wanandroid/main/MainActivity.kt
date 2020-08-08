@@ -6,7 +6,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.router.RouterPath
 
-@Route(path = RouterPath.PAGER_MAIN)
+@Route(path = RouterPath.PAGER_ACTIVITY_MAIN)
 class MainActivity : BaseActivity() {
     private lateinit var fragments: List<Fragment>
 
@@ -21,15 +21,16 @@ class MainActivity : BaseActivity() {
 
     private fun initFragment() {
         val homeFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_HOME).navigation() as Fragment
+            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_HOME).navigation() as Fragment
         val systemFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_SYSTEM).navigation() as Fragment
+            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_SYSTEM).navigation() as Fragment
         val findFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_FIND).navigation() as Fragment
+            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_FIND).navigation() as Fragment
         val navFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_NAVIGATION).navigation() as Fragment
+            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_NAVIGATION).navigation() as Fragment
         val mineFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_MINE).navigation() as Fragment
+            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_MINE).navigation() as Fragment
+
         fragments = listOf(homeFragment, systemFragment, findFragment, navFragment, mineFragment)
 
         supportFragmentManager.beginTransaction()

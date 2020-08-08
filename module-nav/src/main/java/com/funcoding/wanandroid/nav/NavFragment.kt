@@ -7,7 +7,7 @@ import com.funcoding.wanandroid.base.router.RouterPath
 /**
  * 导航页面
  */
-@Route(path = RouterPath.PAGER_NAVIGATION)
+@Route(path = RouterPath.PAGER_FRAGMENT_NAVIGATION)
 class NavFragment : BaseFragment() {
     override fun getLayResId(): Int = R.layout.nav_fragment
 }

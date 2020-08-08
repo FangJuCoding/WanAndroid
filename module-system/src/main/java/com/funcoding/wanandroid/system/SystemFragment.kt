@@ -7,7 +7,7 @@ import com.funcoding.wanandroid.base.router.RouterPath
 /**
  * 体系页面
  */
-@Route(path = RouterPath.PAGER_SYSTEM)
+@Route(path = RouterPath.PAGER_FRAGMENT_SYSTEM)
 class SystemFragment:BaseFragment() {
     override fun getLayResId(): Int = R.layout.system_fragment
 }

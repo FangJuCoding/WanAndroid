@@ -7,7 +7,7 @@ import com.funcoding.wanandroid.base.router.RouterPath
 /**
  * 首页
  */
-@Route(path = RouterPath.PAGER_HOME)
+@Route(path = RouterPath.PAGER_FRAGMENT_HOME)
 class HomeFragment : BaseFragment() {
     override fun getLayResId(): Int = R.layout.home_fragment
 }

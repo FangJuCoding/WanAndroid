@@ -11,7 +11,6 @@ import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.ext.otherwise
 import com.funcoding.wanandroid.base.ext.yes
 import com.funcoding.wanandroid.base.router.RouterPath
-import com.funcoding.wanandroid.base.widget.LoadingDialogFragment
 import com.funcoding.wanandroid.user.R
 import com.funcoding.wanandroid.user.login.LoginFragment
 import com.funcoding.wanandroid.user.register.RegisterFragment
@@ -55,7 +54,7 @@ class AccountActivity : BaseActivity(), AccountTrigger {
     }
 
     private fun gotoMain() {
-        ARouter.getInstance().build(RouterPath.PAGER_MAIN)
+        ARouter.getInstance().build(RouterPath.PAGER_ACTIVITY_MAIN)
             .navigation()
         finish()
     }

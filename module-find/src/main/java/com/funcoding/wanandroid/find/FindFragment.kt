@@ -7,7 +7,7 @@ import com.funcoding.wanandroid.base.router.RouterPath
 /**
  * 发现页
  */
-@Route(path = RouterPath.PAGER_FIND)
+@Route(path = RouterPath.PAGER_FRAGMENT_FIND)
 class FindFragment : BaseFragment() {
     override fun getLayResId(): Int = R.layout.find_fragment
 }
