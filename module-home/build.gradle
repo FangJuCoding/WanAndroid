@@ -23,4 +23,6 @@ dependencies {
     api project(':library-base')
     // 组件中依赖阿里路由编译框架
     kapt rootProject.ext.dependencies["arouter-compiler"]
+    // Glide
+    kapt rootProject.ext.dependencies["glide-compiler"]
 }
