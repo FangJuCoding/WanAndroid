@@ -13,6 +13,17 @@ class ModuleLifecycleReflects {
 
         private const val MainInit = "com.funcoding.wanandroid.main.MainModuleInit"
 
-        val initModuleNames = listOf(BaseInit, UserInit, MainInit)
+        private const val HomeInit = "com.funcoding.wanandroid.home.HomeModuleInit"
+
+        private const val SystemInit = "com.funcoding.wanandroid.system.SystemModuleInit"
+
+        private const val FindInit = "com.funcoding.wanandroid.find.FindModuleInit"
+
+        private const val NavInit = "com.funcoding.wanandroid.nav.NavModuleInit"
+
+        private const val MineInit = "com.funcoding.wanandroid.mine.MineModuleInit"
+
+        val initModuleNames =
+            listOf(BaseInit, UserInit, MainInit, HomeInit, SystemInit, FindInit, NavInit, MineInit)
     }
 }

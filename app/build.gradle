@@ -20,6 +20,7 @@ android {
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -74,5 +75,13 @@ dependencies {
         implementation project(':module-main')
         // 首页模块
         implementation project(':module-home')
+        // 体系模块
+        implementation project(':module-system')
+        // 发现模块
+        implementation project(':module-find')
+        // 导航模块
+        implementation project(':module-nav')
+        // 我的模块
+        implementation project(':module-mine')
     }
 }

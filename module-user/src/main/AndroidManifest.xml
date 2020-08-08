@@ -6,6 +6,16 @@
 
     <application>
         <activity
+            android:name="com.funcoding.wanandroid.user.launcher.LauncherActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen.NoTitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".account.AccountActivity"
             android:screenOrientation="portrait" />
     </application>

@@ -10,6 +10,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
+        multiDexEnabled true
 
         versionCode 1
         versionName "1.0"
@@ -39,6 +40,7 @@ android {
 
 dependencies {
     api fileTree(dir: "libs", include: ["*.jar"])
+    api rootProject.ext.dependencies["multidex"]
     api rootProject.ext.dependencies["kotlin-stdlib"]
     api rootProject.ext.dependencies["core-ktx"]
     api rootProject.ext.dependencies["kotlinx-coroutines-core"]

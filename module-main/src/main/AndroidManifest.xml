@@ -3,9 +3,10 @@
     package="com.funcoding.wanandroid.main">
 
     <application>
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

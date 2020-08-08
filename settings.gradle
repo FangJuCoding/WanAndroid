@@ -1,3 +1,7 @@
+include ':module-nav'
+include ':module-system'
+include ':module-mine'
+include ':module-find'
 include ':module-home'
 include ':module-main'
 include ':module-user'
