@@ -5,6 +5,6 @@ object RouterPath {
     const val PAGER_MAIN = "$MAIN/Main"
 
     private const val ACCOUNT = "/account"
-    const val PAGER_LOGIN = "$ACCOUNT/login"
-    const val PAGER_REGISTER = "$ACCOUNT/register"
+    const val PAGER_LOGIN = "$ACCOUNT/Login"
+    const val PAGER_REGISTER = "$ACCOUNT/Register"
 }

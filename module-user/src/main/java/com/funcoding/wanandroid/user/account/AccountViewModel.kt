@@ -17,8 +17,7 @@ class AccountViewModel : BaseViewModel() {
             block = {
                 val userInfo = userRepository.login(username, password)
                 AccountManager.username = userInfo.username
-                AccountManager.password = userInfo.password
-                AccountManager.token = userInfo.token
+                AccountManager.password = password
                 AccountManager.isRememberPwd = isRememberPwd
                 isShowLoading.value = false
                 loginResult.value = true
@@ -36,8 +35,7 @@ class AccountViewModel : BaseViewModel() {
             block = {
                 val userInfo = userRepository.register(username, password, rePassword)
                 AccountManager.username = userInfo.username
-                AccountManager.password = userInfo.password
-                AccountManager.token = userInfo.token
+                AccountManager.password = password
                 AccountManager.isRememberPwd = true
                 isShowLoading.value = false
                 registerResult.value = true
@@ -52,8 +50,6 @@ class AccountViewModel : BaseViewModel() {
     fun getUsername(): String = AccountManager.username
 
     fun getPassword(): String = AccountManager.password
-
-    fun getToken(): String = AccountManager.token
 
     fun isRememberPwd(): Boolean = AccountManager.isRememberPwd
 }

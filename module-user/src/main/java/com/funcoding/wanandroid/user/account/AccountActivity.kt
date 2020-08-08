@@ -6,8 +6,6 @@ import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.alibaba.android.arouter.facade.Postcard
-import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.router.RouterPath
@@ -54,26 +52,13 @@ class AccountActivity : BaseActivity(), AccountTrigger {
 
     private fun gotoMain() {
         ARouter.getInstance().build(RouterPath.PAGER_MAIN)
-            .navigation(this, object : NavigationCallback {
-                override fun onLost(postcard: Postcard?) {
-
-                }
-
-                override fun onFound(postcard: Postcard?) {
-                }
-
-                override fun onInterrupt(postcard: Postcard?) {
-                }
-
-                override fun onArrival(postcard: Postcard?) {
-                    finish()
-                }
-            })
+            .navigation()
+        finish()
     }
 
     override fun initData() {
-        val token = accountViewModel.getToken()
-        if (TextUtils.isEmpty(token)) {
+        val username = accountViewModel.getUsername()
+        if (!TextUtils.isEmpty(username)) {
             loginFragment = LoginFragment(accountViewModel)
             currentFragment = loginFragment
         } else {
