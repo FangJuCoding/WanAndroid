@@ -14,9 +14,9 @@ class MainActivity : BaseActivity() {
 
     override fun initView() {
         // 初始化Fragment
-//        initFragment()
+        initFragment()
         // 初始化BottomNav
-//        initBottomBav()
+        initBottomBav()
     }
 
     private fun initFragment() {
@@ -38,5 +38,6 @@ class MainActivity : BaseActivity() {
     }
 
     private fun initBottomBav() {
+
     }
 }

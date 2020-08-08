@@ -11,7 +11,7 @@ open class BaseModuleInit : IModuleInit {
         // 开启打印日志
         WLog.init(true)
 
-        // TODO 初始化阿里路由框架
+        // 初始化阿里路由框架
         if (BuildConfig.DEBUG) {
             ARouter.openDebug()
             ARouter.openLog()

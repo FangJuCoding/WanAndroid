@@ -14,7 +14,7 @@ object MainHandler {
         mainHandler.postDelayed(r, delayMillis)
     }
 
-    fun runOnUiThread(r: Runnable) {
+    fun runInMainThread(r: Runnable) {
         if (mainHandler.looper == Looper.getMainLooper()) {
             r.run()
         } else {
