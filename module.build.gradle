@@ -38,6 +38,8 @@ android {
                 resources {
                     //正式版本时，排除alone文件夹下所有调试文件
                     exclude 'src/main/alone/*'
+                    // 正式版本时。排除debug文件夹下所有调试文件
+                    exclude 'src/debug/*'
                 }
             }
         }

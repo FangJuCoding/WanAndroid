@@ -5,6 +5,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.router.RouterPath
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 @Route(path = RouterPath.PAGER_ACTIVITY_MAIN)
 class MainActivity : BaseActivity() {
@@ -14,9 +15,9 @@ class MainActivity : BaseActivity() {
 
     override fun initView() {
         // 初始化Fragment
-//        initFragment()
+        initFragment()
         // 初始化BottomNav
-        initBottomBav()
+        setupBottomNavigationBar()
     }
 
     private fun initFragment() {
@@ -38,7 +39,8 @@ class MainActivity : BaseActivity() {
             .commitAllowingStateLoss()
     }
 
-    private fun initBottomBav() {
+    private fun setupBottomNavigationBar() {
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.mainBottomNavView)
 
     }
 }
