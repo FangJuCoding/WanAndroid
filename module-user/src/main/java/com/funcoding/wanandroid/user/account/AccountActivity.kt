@@ -8,8 +8,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
+import com.funcoding.wanandroid.base.ext.otherwise
+import com.funcoding.wanandroid.base.ext.yes
 import com.funcoding.wanandroid.base.router.RouterPath
-import com.funcoding.wanandroid.base.widget.LoadingDialog
+import com.funcoding.wanandroid.base.widget.LoadingDialogFragment
 import com.funcoding.wanandroid.user.R
 import com.funcoding.wanandroid.user.login.LoginFragment
 import com.funcoding.wanandroid.user.register.RegisterFragment
@@ -30,21 +32,21 @@ class AccountActivity : BaseActivity(), AccountTrigger {
 
     override fun initView() {
         accountViewModel.isShowLoading.observe(this, Observer { result ->
-            if (result) {
-                LoadingDialog.show(this)
-            } else {
-                LoadingDialog.dismiss()
+            result.yes {
+                showLoading()
+            }.otherwise {
+                hideLoading()
             }
         })
 
         accountViewModel.loginResult.observe(this, Observer { result ->
-            if (result) {
+            result.yes {
                 gotoMain()
             }
         })
 
         accountViewModel.registerResult.observe(this, Observer { result ->
-            if (result) {
+            result.yes {
                 gotoMain()
             }
         })
