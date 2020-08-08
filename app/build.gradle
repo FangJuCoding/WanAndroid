@@ -72,5 +72,7 @@ dependencies {
         implementation project(':module-user')
         // 主界面模块
         implementation project(':module-main')
+        // 首页模块
+        implementation project(':module-home')
     }
 }

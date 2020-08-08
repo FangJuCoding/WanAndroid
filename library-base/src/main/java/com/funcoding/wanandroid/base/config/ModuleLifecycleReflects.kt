@@ -9,8 +9,10 @@ class ModuleLifecycleReflects {
     companion object {
         private const val BaseInit = "com.funcoding.wanandroid.base.base.BaseModuleInit"
 
-        private const val SignInInit = "com.funcoding.wanandroid.user.UserModuleInit"
+        private const val UserInit = "com.funcoding.wanandroid.user.UserModuleInit"
 
-        val initModuleNames = listOf(BaseInit, SignInInit)
+        private const val MainInit = "com.funcoding.wanandroid.main.MainModuleInit"
+
+        val initModuleNames = listOf(BaseInit, UserInit, MainInit)
     }
 }

@@ -1,3 +1,4 @@
+include ':module-home'
 include ':module-main'
 include ':module-user'
 include ':library-base'

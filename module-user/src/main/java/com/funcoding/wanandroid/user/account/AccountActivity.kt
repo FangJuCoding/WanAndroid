@@ -31,25 +31,27 @@ class AccountActivity : BaseActivity(), AccountTrigger {
     override fun getLayoutResId(): Int = R.layout.user_account_activity
 
     override fun initView() {
-        accountViewModel.isShowLoading.observe(this, Observer { result ->
-            result.yes {
-                showLoading()
-            }.otherwise {
-                hideLoading()
-            }
-        })
+        accountViewModel.apply {
+            isShowLoading.observe(this@AccountActivity, Observer { result ->
+                result.yes {
+                    showLoading()
+                }.otherwise {
+                    hideLoading()
+                }
+            })
 
-        accountViewModel.loginResult.observe(this, Observer { result ->
-            result.yes {
-                gotoMain()
-            }
-        })
+            loginResult.observe(this@AccountActivity, Observer { result ->
+                result.yes {
+                    gotoMain()
+                }
+            })
 
-        accountViewModel.registerResult.observe(this, Observer { result ->
-            result.yes {
-                gotoMain()
-            }
-        })
+            registerResult.observe(this@AccountActivity, Observer { result ->
+                result.yes {
+                    gotoMain()
+                }
+            })
+        }
     }
 
     private fun gotoMain() {
