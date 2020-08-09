@@ -3,25 +3,29 @@ package com.funcoding.wanandroid.base.router
 object RouterPath {
     // 登陆和注册页面
     private const val GROUP_ACCOUNT = "/account"
-    const val PAGER_FRAGMENT_LOGIN = "$GROUP_ACCOUNT/Login"
-    const val PAGER_FRAGMENT_REGISTER = "$GROUP_ACCOUNT/Register"
+    const val PAGER_ACTIVITY_ACCOUNT = "$GROUP_ACCOUNT/Account"
 
     // 主页面
     private const val GROUP_MAIN = "/main"
     const val PAGER_ACTIVITY_MAIN = "$GROUP_MAIN/Main"
 
     // 首页
-    const val PAGER_FRAGMENT_HOME = "$GROUP_MAIN/Home"
+    private const val GROUP_HOME = "/home"
+    const val PAGER_FRAGMENT_HOME = "$GROUP_HOME/Home"
 
     // 体系页面
-    const val PAGER_FRAGMENT_SYSTEM = "$GROUP_MAIN/System"
+    private const val GROUP_SYSTEM = "/system"
+    const val PAGER_FRAGMENT_SYSTEM = "$GROUP_SYSTEM/System"
 
     // 发现页面
-    const val PAGER_FRAGMENT_FIND = "$GROUP_MAIN/Find"
+    private const val GROUP_FIND = "/find"
+    const val PAGER_FRAGMENT_FIND = "$GROUP_FIND/Find"
 
     // 导航页面
-    const val PAGER_FRAGMENT_NAVIGATION = "$GROUP_MAIN/Navigation"
+    private const val GROUP_NAV = "/nav"
+    const val PAGER_FRAGMENT_NAVIGATION = "$GROUP_NAV/Navigation"
 
     // 我的页面
-    const val PAGER_FRAGMENT_MINE = "$GROUP_MAIN/Mine"
+    private const val GROUP_MINE = "/mine"
+    const val PAGER_FRAGMENT_MINE = "$GROUP_MINE/Mine"
 }

@@ -6,6 +6,7 @@ import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.ext.otherwise
@@ -18,6 +19,7 @@ import com.funcoding.wanandroid.user.register.RegisterFragment
 /**
  * 登陆注册相关界面
  */
+@Route(path = RouterPath.PAGER_ACTIVITY_ACCOUNT)
 class AccountActivity : BaseActivity(), AccountTrigger {
     private var loginFragment: LoginFragment? = null
     private var registerFragment: RegisterFragment? = null
