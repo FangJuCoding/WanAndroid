@@ -1,13 +1,12 @@
 package com.funcoding.wanandroid.user.account
 
-import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.ext.otherwise
 import com.funcoding.wanandroid.base.ext.yes
@@ -21,9 +20,9 @@ import com.funcoding.wanandroid.user.register.RegisterFragment
  */
 @Route(path = RouterPath.PAGER_ACTIVITY_ACCOUNT)
 class AccountActivity : BaseActivity(), AccountTrigger {
-    private var loginFragment: LoginFragment? = null
-    private var registerFragment: RegisterFragment? = null
-    private var currentFragment: Fragment? = null
+    private lateinit var loginFragment: LoginFragment
+    private lateinit var registerFragment: RegisterFragment
+    private lateinit var currentFragment: Fragment
 
     private val accountViewModel: AccountViewModel by lazy {
         ViewModelProviders.of(this).get(AccountViewModel::class.java)
@@ -31,7 +30,7 @@ class AccountActivity : BaseActivity(), AccountTrigger {
 
     override fun getLayoutResId(): Int = R.layout.user_account_activity
 
-    override fun initView() {
+    override fun initView(savedInstanceState: Bundle?) {
         accountViewModel.apply {
             isShowLoading.observe(this@AccountActivity, Observer { result ->
                 result.yes {
@@ -43,25 +42,24 @@ class AccountActivity : BaseActivity(), AccountTrigger {
 
             loginResult.observe(this@AccountActivity, Observer { result ->
                 result.yes {
-                    gotoMain()
+                    loginSuccess()
                 }
             })
 
             registerResult.observe(this@AccountActivity, Observer { result ->
                 result.yes {
-                    gotoMain()
+                    loginSuccess()
                 }
             })
         }
     }
 
-    private fun gotoMain() {
-        ARouter.getInstance().build(RouterPath.PAGER_ACTIVITY_MAIN)
-            .navigation()
+    private fun loginSuccess() {
+        // TODO 登陆成功
         finish()
     }
 
-    override fun initData() {
+    override fun initData(savedInstanceState: Bundle?) {
         val username = accountViewModel.getUsername()
         if (!TextUtils.isEmpty(username)) {
             loginFragment = LoginFragment(accountViewModel)
@@ -71,39 +69,33 @@ class AccountActivity : BaseActivity(), AccountTrigger {
             currentFragment = registerFragment
         }
 
-        currentFragment?.let {
+        currentFragment.let {
             supportFragmentManager.beginTransaction()
                 .add(R.id.account_fragment_container, it)
                 .commit()
         }
     }
 
-    companion object {
-        fun gotoAccountActivity(context: Context) {
-            context.startActivity(Intent(context, AccountActivity::class.java))
-        }
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        currentFragment?.onActivityResult(requestCode, resultCode, data)
+        currentFragment.onActivityResult(requestCode, resultCode, data)
     }
 
     override fun triggerView() {
         // 当前是登陆界面，则切换至注册界面
         if (currentFragment == loginFragment) {
-            if (registerFragment == null) {
+            if (!this::registerFragment.isInitialized) {
                 registerFragment = RegisterFragment(accountViewModel)
             }
             currentFragment = registerFragment
         } else {
             // 当前是注册界面，则切换至登陆界面
-            if (loginFragment == null) {
+            if (!this::loginFragment.isInitialized) {
                 loginFragment = LoginFragment(accountViewModel)
             }
             currentFragment = loginFragment
         }
-        currentFragment?.let {
+        currentFragment.let {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.account_fragment_container, it).commit()
         }

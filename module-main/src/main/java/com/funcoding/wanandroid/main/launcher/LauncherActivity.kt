@@ -1,17 +1,19 @@
-package com.funcoding.wanandroid.user.launcher
+package com.funcoding.wanandroid.main.launcher
 
+import android.os.Bundle
 import com.funcoding.wanandroid.base.base.BaseActivity
+import com.funcoding.wanandroid.base.router.ARouterHelper
+import com.funcoding.wanandroid.base.router.RouterPath
 import com.funcoding.wanandroid.base.utils.MainHandler
-import com.funcoding.wanandroid.user.R
-import com.funcoding.wanandroid.user.account.AccountActivity
+import com.funcoding.wanandroid.main.R
 
 /**
  * 启动页面
  */
 class LauncherActivity : BaseActivity() {
 
-    override fun initView() {
-        super.initView()
+    override fun initView(savedInstanceState: Bundle?) {
+        super.initView(savedInstanceState)
         MainHandler.postDelay(
             Runnable {
                 gotoMain()
@@ -20,10 +22,10 @@ class LauncherActivity : BaseActivity() {
         )
     }
 
-    override fun getLayoutResId(): Int = R.layout.user_launcher_activity
+    override fun getLayoutResId(): Int = R.layout.main_launcher_activity
 
     private fun gotoMain() {
-        AccountActivity.gotoAccountActivity(this)
+        ARouterHelper.navigation(RouterPath.PAGER_ACTIVITY_MAIN)
         finish()
     }
 

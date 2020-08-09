@@ -1,46 +1,72 @@
 package com.funcoding.wanandroid.main
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
+import com.funcoding.wanandroid.base.base.ScrollTop
+import com.funcoding.wanandroid.base.ext.otherwise
+import com.funcoding.wanandroid.base.ext.yes
 import com.funcoding.wanandroid.base.router.RouterPath
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.main_activity.*
 
 @Route(path = RouterPath.PAGER_ACTIVITY_MAIN)
 class MainActivity : BaseActivity() {
-    private lateinit var fragments: List<Fragment>
+    private lateinit var fragmentMap: Map<Int, Fragment>
 
     override fun getLayoutResId(): Int = R.layout.main_activity
 
-    override fun initView() {
-        // 初始化Fragment
-        initFragment()
-        // 初始化BottomNav
-        setupBottomNavigationBar()
+    override fun initView(savedInstanceState: Bundle?) {
+        fragmentMap = mapOf(
+            R.id.home to createFragment(RouterPath.PAGER_FRAGMENT_HOME),
+            R.id.system to createFragment(RouterPath.PAGER_FRAGMENT_SYSTEM),
+            R.id.find to createFragment(RouterPath.PAGER_FRAGMENT_FIND),
+            R.id.navigation to createFragment(RouterPath.PAGER_FRAGMENT_NAVIGATION),
+            R.id.mine to createFragment(RouterPath.PAGER_FRAGMENT_MINE)
+        )
+
+        mainBottomNavView.run {
+            setOnNavigationItemSelectedListener { menuItem ->
+                showFragment(menuItem.itemId)
+                true
+            }
+            setOnNavigationItemReselectedListener { menuItem ->
+                val fragment = fragmentMap.entries.find { it.key == menuItem.itemId }?.value
+                if (fragment is ScrollTop) {
+                    fragment.scrollTop()
+                }
+            }
+        }
+
+        if (null == savedInstanceState) {
+            val initialMenuItemId = R.id.home
+            mainBottomNavView.selectedItemId = initialMenuItemId
+            showFragment(initialMenuItemId)
+        }
     }
 
-    private fun initFragment() {
-        val homeFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_HOME).navigation() as Fragment
-        val systemFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_SYSTEM).navigation() as Fragment
-        val findFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_FIND).navigation() as Fragment
-        val navFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_NAVIGATION).navigation() as Fragment
-        val mineFragment: Fragment =
-            ARouter.getInstance().build(RouterPath.PAGER_FRAGMENT_MINE).navigation() as Fragment
+    private fun createFragment(routePath: String): Fragment =
+        ARouter.getInstance().build(routePath).navigation() as Fragment
 
-        fragments = listOf(homeFragment, systemFragment, findFragment, navFragment, mineFragment)
-
-        supportFragmentManager.beginTransaction()
-            .add(R.id.mainContainer, homeFragment)
-            .commitAllowingStateLoss()
-    }
-
-    private fun setupBottomNavigationBar() {
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.mainBottomNavView)
-
+    private fun showFragment(menuItemId: Int) {
+        val currentFragment = supportFragmentManager.fragments.find { fragment ->
+            fragment.isVisible && fragment in fragmentMap.values
+        }
+        val targetFragment = fragmentMap.entries.find { it.key == menuItemId }?.value
+        supportFragmentManager.beginTransaction().apply {
+            currentFragment?.let {
+                it.isVisible.yes {
+                    hide(it)
+                }
+            }
+            targetFragment?.let {
+                it.isAdded.yes {
+                    show(it)
+                }.otherwise {
+                    add(R.id.mainContainer, it)
+                }
+            }
+        }.commit()
     }
 }

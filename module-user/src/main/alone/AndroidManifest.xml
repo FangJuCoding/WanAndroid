@@ -16,7 +16,7 @@
             android:name=".account.AccountActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.funcoding.wanandroid.user.launcher.LauncherActivity"
+            android:name="com.funcoding.wanandroid.main.launcher.LauncherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen.NoTitle">
             <intent-filter>
