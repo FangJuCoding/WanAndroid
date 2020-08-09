@@ -1,3 +1,10 @@
 <resources>
     <string name="home_app_name">module-home</string>
+    <string name="home_tip_search_hint">搜索关键词以空格隔开</string>
+
+    <string name="home_label_popular">热门</string>
+    <string name="home_label_latest">最新</string>
+    <string name="home_label_square">广场</string>
+    <string name="home_label_project">项目</string>
+    <string name="home_label_wechat">公众号</string>
 </resources>

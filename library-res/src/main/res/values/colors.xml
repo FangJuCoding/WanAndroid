@@ -9,8 +9,9 @@
     <color name="colorAccentAlpha">#801A4776</color>
 
     <!--背景色-->
-    <color name="windowsBackground">#f7f7f7</color>
-    <color name="windowsBackgroundLight">#f8f8f8</color>
+    <color name="backgroundPrimary">#FFFFFF</color>
+    <color name="backgroundSecondary">#F8F8F8</color>
+    <color name="backgroundThird">#E8E8E8</color>
 
     <!--字体颜色-->
     <color name="textPrimary">#4e5864</color>

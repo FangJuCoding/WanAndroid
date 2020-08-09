@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
-import com.funcoding.wanandroid.base.base.ScrollTop
+import com.funcoding.wanandroid.base.base.ScrollToTop
 import com.funcoding.wanandroid.base.ext.otherwise
 import com.funcoding.wanandroid.base.ext.yes
 import com.funcoding.wanandroid.base.router.RouterPath
@@ -33,8 +33,8 @@ class MainActivity : BaseActivity() {
             }
             setOnNavigationItemReselectedListener { menuItem ->
                 val fragment = fragmentMap.entries.find { it.key == menuItem.itemId }?.value
-                if (fragment is ScrollTop) {
-                    fragment.scrollTop()
+                if (fragment is ScrollToTop) {
+                    fragment.scrollToTop()
                 }
             }
         }

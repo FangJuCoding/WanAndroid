@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-abstract class BaseFragment : Fragment(), ScrollTop {
+abstract class BaseFragment : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -16,8 +16,4 @@ abstract class BaseFragment : Fragment(), ScrollTop {
     }
 
     abstract fun getLayResId(): Int
-
-    override fun scrollTop() {
-
-    }
 }
