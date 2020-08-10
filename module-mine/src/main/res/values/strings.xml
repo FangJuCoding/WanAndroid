@@ -1,8 +1,14 @@
 <resources>
     <string name="mine_app_name">module-mine</string>
     <string name="mine_login_or_register">登陆/注册</string>
-    <string name="mine_my_integral">我的积分</string>
-    <string name="mine_integral_rank">积分排行</string>
+    <string name="mine_login_or_register_tip">开启你的阅读之旅</string>
+    <string name="mine_my_integral">我的积分：%d</string>
+    <string name="mine_integral_rank">积分排行榜</string>
+    <string name="mine_integral_rule">积分规则</string>
+    <string name="mine_msg_center">消息中心</string>
     <string name="mine_my_share">我的分享</string>
     <string name="mine_my_collect">我的收藏</string>
+    <string name="mine_scan_history">浏览历史</string>
+    <string name="mine_open_day_night_mode">开启夜间模式</string>
+    <string name="mine_view">查看</string>
 </resources>

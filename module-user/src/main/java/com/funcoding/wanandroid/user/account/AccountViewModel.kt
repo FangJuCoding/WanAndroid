@@ -19,10 +19,12 @@ class AccountViewModel : BaseViewModel() {
                 AccountManager.username = userInfo.username
                 AccountManager.password = password
                 AccountManager.isRememberPwd = isRememberPwd
+                AccountManager.isLoginSuccess = true
                 isShowLoading.value = false
                 loginResult.value = true
             },
             error = {
+                AccountManager.isLoginSuccess = false
                 isShowLoading.value = false
                 loginResult.value = false
             }
@@ -37,6 +39,7 @@ class AccountViewModel : BaseViewModel() {
                 AccountManager.username = userInfo.username
                 AccountManager.password = password
                 AccountManager.isRememberPwd = true
+                AccountManager.isLoginSuccess = true
                 isShowLoading.value = false
                 registerResult.value = true
             },

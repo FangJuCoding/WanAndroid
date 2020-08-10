@@ -2,6 +2,7 @@ package com.funcoding.wanandroid.user.account.data
 
 import com.funcoding.wanandroid.base.network.ApiResponse
 import com.funcoding.wanandroid.base.global.model.UserInfo
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -21,4 +22,7 @@ interface AccountApiService {
         @Query("password") password: String,
         @Query("repassword") rePassword: String
     ): ApiResponse<UserInfo>
+
+    @GET("/user/logout/json")
+    suspend fun logout(): ApiResponse<Any>
 }

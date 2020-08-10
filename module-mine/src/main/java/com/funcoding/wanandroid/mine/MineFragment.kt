@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.funcoding.wanandroid.base.base.BaseFragment
-import com.funcoding.wanandroid.base.router.ARouterHelper
 import com.funcoding.wanandroid.base.router.RouterPath
-import kotlinx.android.synthetic.main.mine_fragment.*
 
 /**
  * 我的页面

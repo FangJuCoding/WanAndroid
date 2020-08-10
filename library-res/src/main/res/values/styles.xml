@@ -36,6 +36,11 @@
         <item name="android:textSize">@dimen/dp_12</item>
     </style>
 
+    <style name="AppTheme.TextSecond_Small">
+        <item name="android:textColor">@color/textSecond</item>
+        <item name="android:textSize">@dimen/dp_10</item>
+    </style>
+
     <style name="AppTheme.TextPrimary_Title">
         <item name="android:textColor">@color/textPrimary</item>
         <item name="android:textSize">@dimen/dp_16</item>
