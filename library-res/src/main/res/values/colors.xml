@@ -10,7 +10,7 @@
 
     <!--背景色-->
     <color name="backgroundPrimary">#FFFFFF</color>
-    <color name="backgroundSecondary">#F8F8F8</color>
+    <color name="backgroundSecond">#F8F8F8</color>
     <color name="backgroundThird">#E8E8E8</color>
 
     <!--字体颜色-->

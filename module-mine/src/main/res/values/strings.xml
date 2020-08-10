@@ -1,3 +1,8 @@
 <resources>
     <string name="mine_app_name">module-mine</string>
+    <string name="mine_login_or_register">登陆/注册</string>
+    <string name="mine_my_integral">我的积分</string>
+    <string name="mine_integral_rank">积分排行</string>
+    <string name="mine_my_share">我的分享</string>
+    <string name="mine_my_collect">我的收藏</string>
 </resources>

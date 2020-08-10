@@ -21,4 +21,25 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="AppTheme.TextPrimary_Large">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">@dimen/dp_16</item>
+    </style>
+
+    <style name="AppTheme.TextPrimary_Normal">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">@dimen/dp_14</item>
+    </style>
+
+    <style name="AppTheme.TextSecond_Normal">
+        <item name="android:textColor">@color/textSecond</item>
+        <item name="android:textSize">@dimen/dp_12</item>
+    </style>
+
+    <style name="AppTheme.TextPrimary_Title">
+        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textSize">@dimen/dp_16</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

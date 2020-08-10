@@ -14,6 +14,7 @@ import com.funcoding.wanandroid.base.router.RouterPath
 import com.funcoding.wanandroid.user.R
 import com.funcoding.wanandroid.user.login.LoginFragment
 import com.funcoding.wanandroid.user.register.RegisterFragment
+import kotlinx.android.synthetic.main.user_account_activity.*
 
 /**
  * 登陆注册相关界面
@@ -31,6 +32,10 @@ class AccountActivity : BaseActivity(), AccountTrigger {
     override fun getLayoutResId(): Int = R.layout.user_account_activity
 
     override fun initView(savedInstanceState: Bundle?) {
+        accountCloseImg.setOnClickListener {
+            finish()
+        }
+
         accountViewModel.apply {
             isShowLoading.observe(this@AccountActivity, Observer { result ->
                 result.yes {
@@ -71,7 +76,7 @@ class AccountActivity : BaseActivity(), AccountTrigger {
 
         currentFragment.let {
             supportFragmentManager.beginTransaction()
-                .add(R.id.account_fragment_container, it)
+                .add(R.id.accountFragContainer, it)
                 .commit()
         }
     }
@@ -97,7 +102,7 @@ class AccountActivity : BaseActivity(), AccountTrigger {
         }
         currentFragment.let {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.account_fragment_container, it).commit()
+                .replace(R.id.accountFragContainer, it).commit()
         }
     }
 }

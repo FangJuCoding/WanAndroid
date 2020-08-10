@@ -17,8 +17,6 @@ class MineFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mineTv.setOnClickListener {
-            ARouterHelper.navigation(RouterPath.PAGER_ACTIVITY_ACCOUNT)
-        }
+
     }
 }
