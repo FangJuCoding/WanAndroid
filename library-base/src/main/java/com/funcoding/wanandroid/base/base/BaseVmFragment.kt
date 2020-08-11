@@ -11,8 +11,8 @@ abstract class BaseVmFragment<VM : BaseViewModel> : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
         initViewModel()
+        initView()
         // 因为Fragment恢复后savedInstanceState不为null，
         // 重新恢复后会自动从ViewModel中的LiveData恢复数据，
         // 不需要重新初始化数据。

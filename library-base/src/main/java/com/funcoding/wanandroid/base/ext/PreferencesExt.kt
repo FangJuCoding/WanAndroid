@@ -57,3 +57,39 @@ class Preferences<T>(
         name
     }
 }
+
+fun <T> putSpValue(context: Context, key: String, value: T, prefName: String) {
+    with(context.getSharedPreferences(prefName, Context.MODE_PRIVATE).edit()) {
+        when (value) {
+            is Int -> putInt(key, value)
+            is Float -> putFloat(key, value)
+            is Long -> putLong(key, value)
+            is Boolean -> putBoolean(key, value)
+            is String -> putString(key, value)
+            else ->
+                throw IllegalArgumentException("Unsupported Type")
+        }
+        apply()
+    }
+}
+
+fun <T> getSpValue(context: Context, key: String, defValue: T, prefName: String): T {
+    val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+    return when (defValue) {
+        is Int -> pref.getInt(key, defValue)
+        is Float -> pref.getFloat(key, defValue)
+        is Long -> pref.getLong(key, defValue)
+        is Boolean -> pref.getBoolean(key, defValue)
+        is String -> pref.getString(key, defValue)
+        else ->
+            throw IllegalArgumentException("Unsupported Type")
+    } as T
+}
+
+
+fun removeSpValue(context: Context, key: String, prefName: String) {
+    context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+        .edit()
+        .remove(key)
+        .apply()
+}

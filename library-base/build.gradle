@@ -3,6 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+//阿里路由框架配置
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -68,4 +75,6 @@ dependencies {
     api(rootProject.ext.dependencies["arouter-api"]) {
         exclude group: 'com.android.support'
     }
+    // 组件中依赖阿里路由编译框架
+    kapt rootProject.ext.dependencies["arouter-compiler"]
 }

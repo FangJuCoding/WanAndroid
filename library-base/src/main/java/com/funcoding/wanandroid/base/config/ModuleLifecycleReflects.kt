@@ -9,7 +9,7 @@ class ModuleLifecycleReflects {
     companion object {
         private const val BaseInit = "com.funcoding.wanandroid.base.base.BaseModuleInit"
 
-        private const val UserInit = "com.funcoding.wanandroid.user.UserModuleInit"
+        private const val AccountInit = "com.funcoding.wanandroid.account.AccountModuleInit"
 
         private const val MainInit = "com.funcoding.wanandroid.main.MainModuleInit"
 
@@ -24,6 +24,6 @@ class ModuleLifecycleReflects {
         private const val MineInit = "com.funcoding.wanandroid.mine.MineModuleInit"
 
         val initModuleNames =
-            listOf(BaseInit, UserInit, MainInit, HomeInit, SystemInit, FindInit, NavInit, MineInit)
+            listOf(BaseInit, AccountInit, MainInit, HomeInit, SystemInit, FindInit, NavInit, MineInit)
     }
 }

@@ -70,7 +70,7 @@ dependencies {
         implementation project(':library-base')
     } else {
         // 登陆模块
-        implementation project(':module-user')
+        implementation project(':module-account')
         // 主界面模块
         implementation project(':module-main')
         // 首页模块
