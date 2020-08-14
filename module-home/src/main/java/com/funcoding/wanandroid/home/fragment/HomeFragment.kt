@@ -1,15 +1,14 @@
 package com.funcoding.wanandroid.home.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.funcoding.wanandroid.base.base.BaseFragment
 import com.funcoding.wanandroid.base.base.ScrollToTop
+import com.funcoding.wanandroid.base.router.ARouterHelper
 import com.funcoding.wanandroid.base.router.RouterPath
 import com.funcoding.wanandroid.home.R
-import com.funcoding.wanandroid.home.activity.SearchActivity
 import com.funcoding.wanandroid.home.fragment.latest.LatestFragment
 import com.funcoding.wanandroid.home.fragment.popular.PopularFragment
 import com.funcoding.wanandroid.home.fragment.project.ProjectFragment
@@ -55,7 +54,7 @@ class HomeFragment : BaseFragment(), ScrollToTop {
         homeTabLayout.setupWithViewPager(homeViewPager)
 
         homeSearchLay.setOnClickListener {
-            SearchActivity.start(activity as Context)
+            ARouterHelper.greenChannelNavigation(RouterPath.PAGER_ACTIVITY_SEARCH)
         }
     }
 

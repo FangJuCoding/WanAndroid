@@ -9,6 +9,10 @@ object RouterPath {
     private const val GROUP_MAIN = "/main"
     const val PAGER_ACTIVITY_MAIN = "$GROUP_MAIN/Main"
 
+    // 搜索界面
+    private const val GROUP_SEARCH = "/search"
+    const val PAGER_ACTIVITY_SEARCH = "$GROUP_SEARCH/Search"
+
     // 首页
     private const val GROUP_HOME = "/home"
     const val PAGER_FRAGMENT_HOME = "$GROUP_HOME/Home"

@@ -1,16 +1,24 @@
 package com.funcoding.wanandroid.base.router
 
 import com.alibaba.android.arouter.launcher.ARouter
+import com.funcoding.wanandroid.base.R
 import com.funcoding.wanandroid.base.base.AppContext
 import com.funcoding.wanandroid.base.router.callback.LoginNavigationCallback
 
 object ARouterHelper {
+    private val ROUTER by lazy { ARouter.getInstance() }
 
     fun navWithLoginInterceptorCallback(path: String) {
-        ARouter.getInstance().build(path).navigation(AppContext, LoginNavigationCallback())
+        ROUTER.build(path).navigation(AppContext, LoginNavigationCallback())
     }
 
     fun navigation(path: String) {
-        ARouter.getInstance().build(path).navigation()
+        ROUTER.build(path).navigation()
+    }
+
+    fun greenChannelNavigation(path: String) {
+        ROUTER.build(path).greenChannel()
+            .withTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom)
+            .navigation()
     }
 }

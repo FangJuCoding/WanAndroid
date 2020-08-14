@@ -7,12 +7,15 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.funcoding.wanandroid.base.base.BaseActivity
 import com.funcoding.wanandroid.base.base.ScrollToTop
 import com.funcoding.wanandroid.base.ext.otherwise
+import com.funcoding.wanandroid.base.ext.shortToast
 import com.funcoding.wanandroid.base.ext.yes
+import com.funcoding.wanandroid.base.global.AppManager
 import com.funcoding.wanandroid.base.router.RouterPath
 import kotlinx.android.synthetic.main.main_activity.*
 
 @Route(path = RouterPath.PAGER_ACTIVITY_MAIN)
 class MainActivity : BaseActivity() {
+    private var lastBackPressedTime: Long = 0
     private lateinit var fragmentMap: Map<Int, Fragment>
 
     override fun getLayoutResId(): Int = R.layout.main_activity
@@ -68,5 +71,16 @@ class MainActivity : BaseActivity() {
                 }
             }
         }.commit()
+    }
+
+    override fun onBackPressed() {
+        val curBackPressTime = System.currentTimeMillis()
+        val canExit = curBackPressTime - lastBackPressedTime < 2000L
+        lastBackPressedTime = curBackPressTime
+        if (canExit) {
+            AppManager.exitApp()
+        } else {
+            getString(R.string.main_tip_back_exit).shortToast()
+        }
     }
 }

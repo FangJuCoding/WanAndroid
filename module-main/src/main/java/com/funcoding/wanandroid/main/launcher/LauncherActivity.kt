@@ -25,7 +25,7 @@ class LauncherActivity : BaseActivity() {
     override fun getLayoutResId(): Int = R.layout.main_launcher_activity
 
     private fun gotoMain() {
-        ARouterHelper.navigation(RouterPath.PAGER_ACTIVITY_MAIN)
+        ARouterHelper.greenChannelNavigation(RouterPath.PAGER_ACTIVITY_MAIN)
         finish()
     }
 

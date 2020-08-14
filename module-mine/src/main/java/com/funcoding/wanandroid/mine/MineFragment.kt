@@ -46,7 +46,7 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
 
         mineLay.setOnClickListener {
             viewModel.isLogin().no {
-                ARouterHelper.navigation(RouterPath.PAGER_ACTIVITY_ACCOUNT)
+                ARouterHelper.greenChannelNavigation(RouterPath.PAGER_ACTIVITY_ACCOUNT)
             }
         }
 

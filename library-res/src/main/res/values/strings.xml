@@ -5,4 +5,5 @@
     <string name="main_menu_system">体系</string>
     <string name="main_menu_navigation">导航</string>
     <string name="main_menu_mine">我的</string>
+    <string name="main_tip_back_exit">再按一次返回键退出</string>
 </resources>
