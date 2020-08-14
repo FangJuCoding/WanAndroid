@@ -12,4 +12,6 @@ interface AccountService : IProvider {
     fun logout()
 
     fun getUserInfoLiveData(): LiveData<UserInfo>
+
+    fun isLoginLiveData(): LiveData<Boolean>
 }

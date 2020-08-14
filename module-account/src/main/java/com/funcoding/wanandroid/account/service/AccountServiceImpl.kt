@@ -22,6 +22,8 @@ class AccountServiceImpl : AccountService {
 
     override fun getUserInfoLiveData(): LiveData<UserInfo> = AccountManager.getUserInfoLiveData()
 
+    override fun isLoginLiveData(): LiveData<Boolean> = AccountManager.isLoginLiveData()
+
     override fun init(context: Context?) {
     }
 

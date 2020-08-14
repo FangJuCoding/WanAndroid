@@ -15,6 +15,7 @@ object AccountManager {
     private const val pref_isRememberPwd = "account_isRememberPwd"
 
     private val userInfoLiveData = MutableLiveData<UserInfo>()
+    private val isLoginLiveData = MutableLiveData<Boolean>()
 
     var username: String by Preferences(
         AppContext,
@@ -44,6 +45,8 @@ object AccountManager {
 
     fun getUserInfoLiveData(): LiveData<UserInfo> = userInfoLiveData
 
+    fun isLoginLiveData(): LiveData<Boolean> = isLoginLiveData
+
     fun getUserInfo(): UserInfo? {
         val userInfoStr = getSpValue(
             AppContext,
@@ -66,10 +69,13 @@ object AccountManager {
         if (userInfoLiveData.hasObservers()) {
             userInfoLiveData.postValue(userInfo)
         }
+        if (isLoginLiveData.hasObservers()) {
+            isLoginLiveData.postValue(true)
+        }
     }
 
 
-    fun clearUserInfo() {
+    private fun clearUserInfo() {
         putSpValue(
             AppContext,
             pref_userInfo, "",
@@ -77,6 +83,9 @@ object AccountManager {
         )
         if (userInfoLiveData.hasObservers()) {
             userInfoLiveData.postValue(null)
+        }
+        if (isLoginLiveData.hasObservers()) {
+            isLoginLiveData.postValue(false)
         }
     }
 }

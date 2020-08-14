@@ -9,8 +9,11 @@ class MineViewModel : BaseViewModel() {
 
     var userInfo = MutableLiveData<UserInfo>()
 
-    fun getUserInfo() {
+    var isLogin = MutableLiveData<Boolean>()
+
+    fun refreshMineInfo() {
         userInfo.value = AccountServiceImplGlobal.getUserInfo()
+        isLogin.value = AccountServiceImplGlobal.isLogin()
     }
 
     fun isLogin(): Boolean = AccountServiceImplGlobal.isLogin()

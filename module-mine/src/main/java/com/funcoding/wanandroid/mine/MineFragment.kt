@@ -26,12 +26,23 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
         super.initView()
         viewModel.apply {
             userInfo.observe(this@MineFragment, Observer {
-                it?.let {
+                if (it == null) {
+                    mineNickname.text = getString(R.string.mine_login_or_register)
+                    mineEmail.text = getString(R.string.mine_login_or_register_tip)
+                    mineMyIntegral.text =
+                        String.format(getString(R.string.mine_my_integral, 0))
+                    return@Observer
+                }
+                it.let {
                     mineNickname.text = it.nickname
                     mineEmail.text = it.email
                     mineMyIntegral.text =
                         String.format(getString(R.string.mine_my_integral, it.coinCount))
                 }
+            })
+
+            isLogin.observe(this@MineFragment, Observer {
+                mineLogoutBtn.visibility = if (it) View.VISIBLE else View.GONE
             })
         }
 
@@ -41,10 +52,13 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
             }
         }
 
-        mineLogoutBtn.visibility = viewModel.isLogin().yes {
-            View.VISIBLE
-        }.otherwise {
-            View.GONE
+        AccountServiceImplGlobal.apply {
+            getUserInfoLiveData().observe(this@MineFragment, Observer { userInfo ->
+                viewModel.userInfo.value = userInfo
+            })
+            isLoginLiveData().observe(this@MineFragment, Observer { isLogin ->
+                viewModel.isLogin.value = isLogin
+            })
         }
 
         mineLogoutBtn.setOnClickListener {
@@ -66,6 +80,6 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
 
     override fun initData() {
         super.initData()
-        viewModel.getUserInfo()
+        viewModel.refreshMineInfo()
     }
 }

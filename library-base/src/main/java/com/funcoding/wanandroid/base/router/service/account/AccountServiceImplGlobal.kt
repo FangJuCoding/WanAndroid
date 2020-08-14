@@ -27,4 +27,6 @@ object AccountServiceImplGlobal {
     }
 
     fun getUserInfoLiveData(): LiveData<UserInfo> = accountService.getUserInfoLiveData()
+
+    fun isLoginLiveData(): LiveData<Boolean> = accountService.isLoginLiveData()
 }
