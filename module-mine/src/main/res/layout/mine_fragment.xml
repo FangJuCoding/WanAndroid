@@ -91,7 +91,7 @@
                             app:layout_constraintTop_toTopOf="@+id/mineAvatar" />
 
                         <TextView
-                            android:id="@+id/mineEmail"
+                            android:id="@+id/mineId"
                             style="@style/AppTheme.TextPrimary_Normal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -202,6 +202,11 @@
 
                             </LinearLayout>
 
+                            <View
+                                android:layout_width="@dimen/dp_1"
+                                android:layout_height="match_parent"
+                                android:background="@color/backgroundSecond" />
+
                             <LinearLayout
                                 android:id="@+id/mineIntegralRule"
                                 android:layout_width="0dp"
@@ -222,31 +227,6 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/dp_4"
                                     android:text="@string/mine_integral_rule"
-                                    android:textColor="@color/textPrimary"
-                                    android:textStyle="bold" />
-
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:id="@+id/mineMsgCenter"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="@dimen/dp_32"
-                                    android:layout_height="@dimen/dp_32"
-                                    android:src="@drawable/mine_msg"
-                                    android:tint="@color/textPrimary" />
-
-                                <TextView
-                                    style="@style/AppTheme.TextPrimary_Normal"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/dp_4"
-                                    android:text="@string/mine_msg_center"
                                     android:textColor="@color/textPrimary"
                                     android:textStyle="bold" />
 
@@ -368,9 +348,11 @@
                             android:text="@string/mine_open_day_night_mode" />
 
                         <Switch
+                            android:id="@+id/mineNightModeSwitch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right|center_vertical"
+                            android:clickable="false"
                             android:src="@drawable/ic_right_back"
                             android:tint="@color/textSecond" />
 
@@ -378,7 +360,7 @@
 
                 </LinearLayout>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/mineLogoutBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

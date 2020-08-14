@@ -3,6 +3,7 @@
     <string name="mine_login_or_register">登陆/注册</string>
     <string name="mine_logout">退出账号</string>
     <string name="mine_login_or_register_tip">开启你的阅读之旅</string>
+    <string name="mine_id">ID：%d</string>
     <string name="mine_my_integral">我的积分：%d</string>
     <string name="mine_integral_rank">积分排行榜</string>
     <string name="mine_integral_rule">积分规则</string>

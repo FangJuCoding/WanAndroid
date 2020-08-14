@@ -25,19 +25,17 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
     override fun initView() {
         super.initView()
         viewModel.apply {
-            userInfo.observe(this@MineFragment, Observer {
-                if (it == null) {
+            userInfo.observe(this@MineFragment, Observer { user ->
+                (user == null).yes {
                     mineNickname.text = getString(R.string.mine_login_or_register)
-                    mineEmail.text = getString(R.string.mine_login_or_register_tip)
+                    mineId.text = getString(R.string.mine_login_or_register_tip)
                     mineMyIntegral.text =
                         String.format(getString(R.string.mine_my_integral, 0))
-                    return@Observer
-                }
-                it.let {
-                    mineNickname.text = it.nickname
-                    mineEmail.text = it.email
+                }.otherwise {
+                    mineNickname.text = user.nickname
+                    mineId.text = String.format(getString(R.string.mine_id, user.id))
                     mineMyIntegral.text =
-                        String.format(getString(R.string.mine_my_integral, it.coinCount))
+                        String.format(getString(R.string.mine_my_integral, user.coinCount))
                 }
             })
 
@@ -71,6 +69,10 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
                     dialog.dismiss()
                 }
                 .show()
+        }
+
+        mineOpenNightMode.setOnClickListener {
+            mineNightModeSwitch.isChecked = !mineNightModeSwitch.isChecked
         }
     }
 
