@@ -10,12 +10,18 @@ import retrofit2.http.Query
  * 用户相关的网络请求接口
  */
 interface AccountApiService {
+    /**
+     * 登陆
+     */
     @POST("/user/login")
     suspend fun login(
         @Query("username") username: String,
         @Query("password") password: String
     ): ApiResponse<UserInfo>
 
+    /**
+     * 注册
+     */
     @POST("/user/register")
     suspend fun register(
         @Query("username") username: String,

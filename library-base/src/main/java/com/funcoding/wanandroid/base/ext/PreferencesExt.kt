@@ -93,3 +93,10 @@ fun removeSpValue(context: Context, key: String, prefName: String) {
         .remove(key)
         .apply()
 }
+
+fun clearSpValue(context: Context, prefName: String) {
+    context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+        .edit()
+        .clear()
+        .apply()
+}

@@ -1,5 +1,12 @@
 package com.funcoding.wanandroid.base.network
 
+import com.franmontiel.persistentcookiejar.PersistentCookieJar
+import com.franmontiel.persistentcookiejar.cache.SetCookieCache
+import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
+import com.funcoding.wanandroid.base.BuildConfig
+import com.funcoding.wanandroid.base.base.AppContext
+import com.funcoding.wanandroid.base.ext.otherwise
+import com.funcoding.wanandroid.base.ext.yes
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -12,11 +19,26 @@ import java.util.concurrent.TimeUnit
 object ServiceCreator {
     private const val BASE_URL = "https://www.wanandroid.com"
 
+    private fun createHttpLoggingInterceptor(): HttpLoggingInterceptor {
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        return BuildConfig.DEBUG.yes {
+            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        }.otherwise {
+            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC)
+        }
+    }
+
+    private val cookieJar =
+        PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(AppContext))
+
+    fun clearCookie() = cookieJar.clear()
+
     private val okHttpClient = OkHttpClient.Builder()
         .callTimeout(20, TimeUnit.SECONDS)
         .connectTimeout(20, TimeUnit.SECONDS)
         .readTimeout(20, TimeUnit.SECONDS)
-        .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        .addInterceptor(createHttpLoggingInterceptor())
+        .cookieJar(cookieJar)
         .build()
 
     private val retrofit = Retrofit.Builder()

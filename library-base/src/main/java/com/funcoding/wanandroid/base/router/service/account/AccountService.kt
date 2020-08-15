@@ -4,6 +4,9 @@ import androidx.lifecycle.LiveData
 import com.alibaba.android.arouter.facade.template.IProvider
 import com.funcoding.wanandroid.base.global.model.UserInfo
 
+/**
+ * 其他模块获取账户信息的服务类
+ */
 interface AccountService : IProvider {
     fun isLogin(): Boolean
 

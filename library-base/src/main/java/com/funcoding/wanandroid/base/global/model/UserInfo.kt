@@ -1,5 +1,8 @@
 package com.funcoding.wanandroid.base.global.model
 
+/**
+ * 账户信息
+ */
 data class UserInfo(
     val admin: Boolean,
     val chapterTops: List<Any>,

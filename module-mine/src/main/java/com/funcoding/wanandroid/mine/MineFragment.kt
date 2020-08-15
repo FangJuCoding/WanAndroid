@@ -1,5 +1,6 @@
 package com.funcoding.wanandroid.mine
 
+import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.Observer
@@ -7,6 +8,7 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.funcoding.wanandroid.base.base.BaseVmFragment
 import com.funcoding.wanandroid.base.ext.no
 import com.funcoding.wanandroid.base.ext.otherwise
+import com.funcoding.wanandroid.base.ext.shortToast
 import com.funcoding.wanandroid.base.ext.yes
 import com.funcoding.wanandroid.base.router.ARouterHelper
 import com.funcoding.wanandroid.base.router.RouterPath
@@ -22,32 +24,22 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
 
     override fun getViewModelClazz(): Class<MineViewModel> = MineViewModel::class.java
 
-    override fun initView() {
-        super.initView()
+    override fun initView(savedInstanceState: Bundle?) {
+        super.initView(savedInstanceState)
         viewModel.apply {
             userInfo.observe(this@MineFragment, Observer { user ->
                 (user == null).yes {
                     mineNickname.text = getString(R.string.mine_login_or_register)
                     mineId.text = getString(R.string.mine_login_or_register_tip)
-                    mineMyIntegral.text =
-                        String.format(getString(R.string.mine_my_integral, 0))
                 }.otherwise {
                     mineNickname.text = user.nickname
                     mineId.text = String.format(getString(R.string.mine_id, user.id))
-                    mineMyIntegral.text =
-                        String.format(getString(R.string.mine_my_integral, user.coinCount))
                 }
             })
 
             isLogin.observe(this@MineFragment, Observer {
                 mineLogoutBtn.visibility = if (it) View.VISIBLE else View.GONE
             })
-        }
-
-        mineLay.setOnClickListener {
-            viewModel.isLogin().no {
-                ARouterHelper.greenChannelNavigation(RouterPath.PAGER_ACTIVITY_ACCOUNT)
-            }
         }
 
         AccountServiceImplGlobal.apply {
@@ -57,6 +49,16 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
             isLoginLiveData().observe(this@MineFragment, Observer { isLogin ->
                 viewModel.isLogin.value = isLogin
             })
+        }
+
+        mineLay.setOnClickListener {
+            viewModel.isLogin().no {
+                ARouterHelper.greenChannelNavigation(RouterPath.PAGER_ACTIVITY_ACCOUNT)
+            }
+        }
+
+        mineViewIntegral.setOnClickListener {
+            ARouterHelper.navWithLoginInterceptorCallback(RouterPath.PAGER_ACTIVITY_MY_INTEGRAL)
         }
 
         mineLogoutBtn.setOnClickListener {
@@ -71,8 +73,12 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
                 .show()
         }
 
-        mineOpenNightMode.setOnClickListener {
-            mineNightModeSwitch.isChecked = !mineNightModeSwitch.isChecked
+        mineNightModeSwitch.setOnCheckedChangeListener { _, isChecked ->
+            isChecked.yes {
+                "开".shortToast()
+            }.otherwise {
+                "关".shortToast()
+            }
         }
     }
 
@@ -80,8 +86,8 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
         viewModel.logout()
     }
 
-    override fun initData() {
-        super.initData()
+    override fun initViewAfter(savedInstanceState: Bundle?) {
+        super.initViewAfter(savedInstanceState)
         viewModel.refreshMineInfo()
     }
 }

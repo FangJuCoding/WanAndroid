@@ -32,4 +32,8 @@ object RouterPath {
     // 我的页面
     private const val GROUP_MINE = "/mine"
     const val PAGER_FRAGMENT_MINE = "$GROUP_MINE/Mine"
+
+    // 我的积分页面
+    private const val GROUP_MY_INTEGRAL = "/myintegral"
+    const val PAGER_ACTIVITY_MY_INTEGRAL = "$GROUP_MY_INTEGRAL/MyIntegral"
 }

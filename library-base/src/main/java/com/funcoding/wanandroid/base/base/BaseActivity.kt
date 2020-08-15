@@ -10,17 +10,23 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutResId())
+        initViewBefore(savedInstanceState)
         initView(savedInstanceState)
-        initData(savedInstanceState)
+        initViewAfter(savedInstanceState)
     }
 
     abstract fun getLayoutResId(): Int
+
+
+    protected open fun initViewBefore(savedInstanceState: Bundle?) {
+
+    }
 
     protected open fun initView(savedInstanceState: Bundle?) {
 
     }
 
-    protected open fun initData(savedInstanceState: Bundle?) {
+    protected open fun initViewAfter(savedInstanceState: Bundle?) {
 
     }
 

@@ -53,6 +53,8 @@ ext {
             "constraint-layout"         : "androidx.constraintlayout:constraintlayout:${versions["constraintlayoutVersion"]}",
             // Material Design组件
             "material"                  : "com.google.android.material:material:${versions["material"]}",
+            // swiperefreshlayout
+            "swiperefresh-layout"       : "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0",
             // recyclerview
             "recyclerview"              : "androidx.recyclerview:recyclerview:1.0.0",
             // cardview
@@ -66,6 +68,8 @@ ext {
             // Retrofit
             "retrofit"                  : "com.squareup.retrofit2:retrofit:${versions["retrofitVersion"]}",
             "retrofit-converter-gson"   : "com.squareup.retrofit2:converter-gson:${versions["retrofitVersion"]}",
-            "logging-interceptor"       : "com.squareup.okhttp3:logging-interceptor:3.5.0"
+            "logging-interceptor"       : "com.squareup.okhttp3:logging-interceptor:3.5.0",
+            // cookiejar
+            "cookiejar"                 : "com.github.franmontiel:PersistentCookieJar:v1.0.1"
     ]
 }

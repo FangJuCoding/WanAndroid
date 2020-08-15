@@ -62,6 +62,7 @@ dependencies {
     api rootProject.ext.dependencies["navigation-ui-ktx"]
     api rootProject.ext.dependencies["appcompat"]
     api rootProject.ext.dependencies["material"]
+    api rootProject.ext.dependencies["swiperefresh-layout"]
     api rootProject.ext.dependencies["recyclerview"]
     api rootProject.ext.dependencies["paging-runtime"]
     api rootProject.ext.dependencies["cardview"]
@@ -70,6 +71,7 @@ dependencies {
     api rootProject.ext.dependencies["retrofit-converter-gson"]
     api rootProject.ext.dependencies["logging-interceptor"]
     api rootProject.ext.dependencies["glide-runtime"]
+    api rootProject.ext.dependencies["cookiejar"]
     api project(':library-res')
     //阿里路由框架
     api(rootProject.ext.dependencies["arouter-api"]) {

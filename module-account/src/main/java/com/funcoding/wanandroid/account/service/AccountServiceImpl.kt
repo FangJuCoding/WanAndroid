@@ -8,6 +8,11 @@ import com.funcoding.wanandroid.base.router.service.ServicePath
 import com.funcoding.wanandroid.base.router.service.account.AccountService
 import com.funcoding.wanandroid.base.utils.WLog
 import com.funcoding.wanandroid.account.AccountManager
+import com.funcoding.wanandroid.account.repository.AccountRepository
+import com.funcoding.wanandroid.base.network.ServiceCreator
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 
 @Route(path = ServicePath.ACCOUNT_SERVICE_PATH)
 class AccountServiceImpl : AccountService {
@@ -16,8 +21,11 @@ class AccountServiceImpl : AccountService {
     override fun getUserInfo(): UserInfo? = AccountManager.getUserInfo()
 
     override fun logout() {
-        WLog.info("logout")
-        AccountManager.logout()
+        CoroutineScope(Dispatchers.IO).async {
+            AccountRepository.logout()
+            ServiceCreator.clearCookie()
+            AccountManager.logout()
+        }
     }
 
     override fun getUserInfoLiveData(): LiveData<UserInfo> = AccountManager.getUserInfoLiveData()

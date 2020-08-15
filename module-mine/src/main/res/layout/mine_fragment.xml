@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
         android:background="@color/textAccent"
-        app:contentInsetStart="0dp">
+        app:contentInsetStart="0dp"
+        app:elevation="@dimen/dp_2">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -352,7 +353,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right|center_vertical"
-                            android:clickable="false"
                             android:src="@drawable/ic_right_back"
                             android:tint="@color/textSecond" />
 
@@ -360,7 +360,7 @@
 
                 </LinearLayout>
 
-                <com.google.android.material.button.MaterialButton
+                <Button
                     android:id="@+id/mineLogoutBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -368,7 +368,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/dp_64"
                     android:background="@drawable/selector_btn"
-                    android:text="@string/mine_logout" />
+                    android:text="@string/mine_logout"
+                    android:textColor="@android:color/white" />
 
             </RelativeLayout>
 
