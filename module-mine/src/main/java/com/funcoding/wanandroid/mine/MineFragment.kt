@@ -58,7 +58,11 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
         }
 
         mineViewIntegral.setOnClickListener {
-            ARouterHelper.navWithLoginInterceptorCallback(RouterPath.PAGER_ACTIVITY_MY_INTEGRAL)
+            ARouterHelper.navWithLoginInterceptorCallback(RouterPath.PAGER_ACTIVITY_INTEGRAL_RECORD)
+        }
+
+        mineIntegralRank.setOnClickListener {
+            ARouterHelper.navWithLoginInterceptorCallback(RouterPath.PAGER_ACTIVITY_INTEGRAL_RANK)
         }
 
         mineLogoutBtn.setOnClickListener {

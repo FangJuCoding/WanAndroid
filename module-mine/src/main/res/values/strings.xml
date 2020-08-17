@@ -6,6 +6,7 @@
     <string name="mine_id">ID：%d</string>
     <string name="mine_level">等级：%d</string>
     <string name="mine_rank">排名：%s</string>
+    <string name="mine_integral_item">+%d</string>
     <string name="mine_my_integral">我的积分</string>
     <string name="mine_integral_rank">积分排行榜</string>
     <string name="mine_integral_rule">积分规则</string>

@@ -5,12 +5,11 @@ import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.funcoding.wanandroid.base.base.BaseVmActivity
 import com.funcoding.wanandroid.base.router.RouterPath
-import com.funcoding.wanandroid.base.utils.WLog
 import com.funcoding.wanandroid.mine.R
 import kotlinx.android.synthetic.main.mine_integral_record_activity.*
-import kotlinx.android.synthetic.main.mine_my_integral_view.*
+import kotlinx.android.synthetic.main.mine_integral_record_view.*
 
-@Route(path = RouterPath.PAGER_ACTIVITY_MY_INTEGRAL)
+@Route(path = RouterPath.PAGER_ACTIVITY_INTEGRAL_RECORD)
 class IntegralRecordActivity : BaseVmActivity<IntegralRecordViewModel>() {
     private lateinit var integralRecordAdapter: IntegralRecordAdapter
 
@@ -30,7 +29,7 @@ class IntegralRecordActivity : BaseVmActivity<IntegralRecordViewModel>() {
                 mineRankTv.text = String.format(getString(R.string.mine_rank), it.rank)
             })
             myIntegralRecordList.observe(this@IntegralRecordActivity, Observer {
-                integralRecordAdapter.updateData(it)
+                integralRecordAdapter.replaceAllData(it)
             })
             isRefreshing.observe(this@IntegralRecordActivity, Observer {
                 integralRecordRefreshLayout.isRefreshing = it

@@ -34,6 +34,10 @@ object RouterPath {
     const val PAGER_FRAGMENT_MINE = "$GROUP_MINE/Mine"
 
     // 我的积分页面
-    private const val GROUP_MY_INTEGRAL = "/myintegral"
-    const val PAGER_ACTIVITY_MY_INTEGRAL = "$GROUP_MY_INTEGRAL/MyIntegral"
+    private const val GROUP_INTEGRAL_RECORD = "/integralRecord"
+    const val PAGER_ACTIVITY_INTEGRAL_RECORD = "$GROUP_INTEGRAL_RECORD/IntegralRecord"
+
+    // 积分排行榜页面
+    private const val GROUP_INTEGRAL_RANK = "/integralRank"
+    const val PAGER_ACTIVITY_INTEGRAL_RANK = "$GROUP_INTEGRAL_RANK/IntegralRank"
 }

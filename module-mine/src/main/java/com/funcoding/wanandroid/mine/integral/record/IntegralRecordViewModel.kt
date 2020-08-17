@@ -41,4 +41,18 @@ class IntegralRecordViewModel : BaseViewModel() {
             }
         )
     }
+
+    fun loadMoreRecord() {
+        isRefreshing.value = true
+        launch(
+            block = {
+                val pagination = integralRepository.getIntegralList(curPage)
+                myIntegralRecordList.value = pagination.datas.toMutableList()
+                isRefreshing.value = false
+            },
+            error = {
+                isRefreshing.value = false
+            }
+        )
+    }
 }
