@@ -335,7 +335,7 @@
                         android:background="@color/backgroundSecond" />
 
                     <FrameLayout
-                        android:id="@+id/mineOpenNightMode"
+                        android:id="@+id/mineSetting"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="@dimen/dp_8"
@@ -346,10 +346,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical|left"
-                            android:text="@string/mine_open_day_night_mode" />
+                            android:text="@string/mine_setting" />
 
-                        <Switch
-                            android:id="@+id/mineNightModeSwitch"
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="right|center_vertical"

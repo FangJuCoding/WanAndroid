@@ -41,6 +41,8 @@ ext {
             "navigation-fragment"       : "androidx.navigation:navigation-fragment:${versions["navigation"]}",
             "navigation-fragment-ktx"   : "androidx.navigation:navigation-fragment-ktx:${versions["navVersion"]}",
             "navigation-ui-ktx"         : "androidx.navigation:navigation-ui-ktx:${versions["navVersion"]}",
+            // preference
+            "preference"                : "androidx.preference:preference:1.1.0-alpha04",
             // Room
             "room-runtime"              : "androidx.room:room-runtime:${versions["roomVersion"]}",
             "room-compiler"             : "androidx.room:room-compiler:${versions["roomVersion"]}",

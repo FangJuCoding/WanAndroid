@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HorizontalView">
+        <attr name="leftIcon" format="reference|color" />
+        <attr name="leftIconTint" format="color" />
+
+        <attr name="title" format="string" />
+        <attr name="titleTextColor" format="color" />
+
+        <attr name="desc" format="string" />
+        <attr name="descTextColor" format="color" />
+
+        <attr name="rightIcon" format="reference|color" />
+        <attr name="rightIconTint" format="color" />
+    </declare-styleable>
+</resources>

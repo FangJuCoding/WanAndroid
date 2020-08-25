@@ -1,12 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.funcoding.wanandroid.mine">
 
     <application>
-
+        <activity android:name=".setting.SettingActivity"></activity>
         <activity
-            android:name="com.funcoding.wanandroid.mine.integral.record.IntegralRecordActivity"
+            android:name=".integral.record.IntegralRecordActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".integral.rank.IntegralRankActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

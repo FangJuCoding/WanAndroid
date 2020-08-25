@@ -16,4 +16,5 @@
     <string name="mine_scan_history">浏览历史</string>
     <string name="mine_open_day_night_mode">开启夜间模式</string>
     <string name="mine_view">查看</string>
+    <string name="mine_setting">设置</string>
 </resources>

@@ -77,12 +77,8 @@ class MineFragment : BaseVmFragment<MineViewModel>() {
                 .show()
         }
 
-        mineNightModeSwitch.setOnCheckedChangeListener { _, isChecked ->
-            isChecked.yes {
-                "开".shortToast()
-            }.otherwise {
-                "关".shortToast()
-            }
+        mineSetting.setOnClickListener {
+            ARouterHelper.navigation(RouterPath.PAGER_ACTIVITY_SETTING)
         }
     }
 

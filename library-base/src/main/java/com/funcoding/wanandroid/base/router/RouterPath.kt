@@ -40,4 +40,8 @@ object RouterPath {
     // 积分排行榜页面
     private const val GROUP_INTEGRAL_RANK = "/integralRank"
     const val PAGER_ACTIVITY_INTEGRAL_RANK = "$GROUP_INTEGRAL_RANK/IntegralRank"
+
+    // 设置界面
+    private const val GROUP_SETTING = "/setting"
+    const val PAGER_ACTIVITY_SETTING = "$GROUP_SETTING/Setting"
 }

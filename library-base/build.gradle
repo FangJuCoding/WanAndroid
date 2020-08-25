@@ -55,6 +55,7 @@ dependencies {
     api rootProject.ext.dependencies["lifecycle-extensions"]
     api rootProject.ext.dependencies["lifecycle-viewmodel-ktx"]
     api rootProject.ext.dependencies["lifecycle-livedata-ktx"]
+    api rootProject.ext.dependencies["preference"]
     api rootProject.ext.dependencies["navigation-runtime"]
     api rootProject.ext.dependencies["navigation-runtime-ktx"]
     api rootProject.ext.dependencies["navigation-fragment"]
