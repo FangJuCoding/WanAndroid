@@ -3,7 +3,7 @@ ext {
     android = [
             compileSdkVersion: 30,
             buildToolsVersion: "30.0.0",
-            applicationId    : "com.funcoding.wanandroid",
+            applicationId    : "cn.funcoding.wanandroid",
             minSdkVersion    : 21,
             targetSdkVersion : 30,
             versionCode      : 1,

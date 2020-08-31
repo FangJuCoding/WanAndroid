@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.funcoding.wanandroid.account">
+    package="cn.funcoding.wanandroid.account">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +16,7 @@
             android:name=".ui.AccountActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.funcoding.wanandroid.main.launcher.LauncherActivity"
+            android:name="cn.funcoding.wanandroid.main.launcher.LauncherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen.NoTitle">
             <intent-filter>

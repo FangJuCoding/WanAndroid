@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.funcoding.wanandroid.main">
+    package="cn.funcoding.wanandroid.main">
 
     <application>
         <activity
@@ -8,7 +8,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.funcoding.wanandroid.main.launcher.LauncherActivity"
+            android:name="cn.funcoding.wanandroid.main.launcher.LauncherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen.NoTitle">
             <intent-filter>
